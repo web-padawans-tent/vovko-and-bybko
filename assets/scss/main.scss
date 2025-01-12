@@ -1,0 +1,17 @@
+// Utils
+@use 'utils/variables';
+@use 'utils/mixins';
+
+// Base styles
+@use 'base/typography';
+
+// Layout styles
+@use 'layout/header';
+@use 'layout/footer';
+
+// Component styles
+@use 'components/buttons';
+@use 'components/cards';
+
+// Tailwind
+@use "libs/tailwind";
