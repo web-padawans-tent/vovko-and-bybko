@@ -2,28 +2,62 @@
 import {defineComponent} from 'vue'
 
 export default defineComponent({
-  name: "header"
+  components: {
+  },
+  name: "header",
+  data() {
+    return {
+      navItems: [
+        {
+          "text": "Услуги",
+          "link": "/services/",
+          "svg": "arrow_down_right",
+        },
+        {
+          "text": "Портфолио",
+          "link": "/portfolio/",
+        },
+        {
+          "text": "Компания",
+          "link": "/about/",
+        },
+        {
+          "text": "Контакты",
+          "link": "/contacts/",
+        },
+      ]
+    }
+  }
 })
 </script>
 
 <template>
-  <header class="header">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
+  <header class="header bg-black p-3">
+    <div class="container mx-auto flex items-center">
       <!-- Логотип -->
-      <router-link to="/">
-        <img src="/public/images/Logo.png" alt="logo"/>
-      </router-link>
+      <div class="z-logo flex gap-3 items-center">
+        <router-link to="/">
+          <img class="max-w-10" src="/public/images/Logo.png" alt="logo"/>
+        </router-link>
 
-      <router-link to="/">
-        <span class="header__title">
-          Vovko & Bybko Studio
-        </span>
-      </router-link>
+        <router-link to="/">
+          <span class="header__title text-white text-xl">
+            Vovko & Bybko Studio
+          </span>
+        </router-link>
+      </div>
 
       <!-- Меню навигации -->
-      <nav>
+      <nav class="ml-auto">
         <ul class="flex space-x-6">
-
+          <li class="flex items-center gap-2" v-for="(item, index) in navItems" :key="index">
+            <a :href="item.link" class="text-xl text-white">
+              {{ item.text }}
+            </a>
+            <svg v-if="item.svg" class="w-4 h-4 fill-white">
+              <use :xlink:href="`#${item.svg}`"></use>
+            </svg>
+          </li>
         </ul>
       </nav>
 
