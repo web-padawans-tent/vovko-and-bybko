@@ -1,17 +1,25 @@
+// Tailwind
+@use "libs/tailwind";
+
 // Utils
-@use 'utils/variables';
 @use 'utils/mixins';
 
 // Base styles
 @use 'base/typography';
+@use 'base/global';
 
 // Layout styles
 @use 'layout/header';
 @use 'layout/footer';
 
-// Component styles
-@use 'components/buttons';
-@use 'components/cards';
+// Pages styles
+@use 'pages/home/index';
 
-// Tailwind
-@use "libs/tailwind";
+// Component styles
+@use 'components/button';
+@use 'components/cards';
+@use 'components/title';
+@use 'components/formField';
+@use 'components/priceCard';
+@use 'components/productCard';
+@use 'components/accordion';

@@ -1,0 +1,18 @@
+.form-field {
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    width: 100%;
+    padding: 18px 14px;
+    border-radius: 8px;
+    border: 1px solid #434343;
+    background: transparent;
+  }
+
+  &__error {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+}

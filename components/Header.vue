@@ -1,5 +1,6 @@
 <script lang="ts">
 import {defineComponent} from 'vue'
+import Button from "~/components/Button.vue";
 
 export default defineComponent({
   components: {
@@ -33,7 +34,8 @@ export default defineComponent({
 
 <template>
   <header class="header bg-black p-3">
-    <div class="container mx-auto flex items-center">
+    <div class="header__container container-main">
+      <div class="header__main mx-auto flex items-center">
       <!-- Логотип -->
       <div class="z-logo flex gap-3 items-center">
         <router-link to="/">
@@ -48,7 +50,7 @@ export default defineComponent({
       </div>
 
       <!-- Меню навигации -->
-      <nav class="ml-auto">
+      <nav class="header__nav ml-auto">
         <ul class="flex space-x-6">
           <li class="flex items-center gap-2" v-for="(item, index) in navItems" :key="index">
             <a :href="item.link" class="text-xl text-white">
@@ -59,6 +61,7 @@ export default defineComponent({
             </svg>
           </li>
         </ul>
+        <Button color="white">ОСТАВИТЬ ЗАЯВКУ</Button>
       </nav>
 
       <!-- Бургер-меню для мобильных устройств -->
@@ -82,6 +85,7 @@ export default defineComponent({
           <router-link to="/contact" class="hover:text-gray-300">Contact</router-link>
         </li>
       </ul>
+    </div>
     </div>
   </header>
 </template>
