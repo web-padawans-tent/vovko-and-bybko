@@ -1,0 +1,39 @@
+.promo {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 540px;
+    height: 100%;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    margin: 0 auto;
+    padding: 140px 15px;
+  }
+
+  &__decor {
+    position: absolute;
+    top: 50%;
+    right: -320px;
+    transform: translate(0, -50%);
+    z-index: -1;
+    max-width: 1200px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}

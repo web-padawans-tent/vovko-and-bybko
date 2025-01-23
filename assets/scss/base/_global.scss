@@ -1,0 +1,49 @@
+.container-main {
+  max-width: 1440px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.section-mb {
+  margin-bottom: 140px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.deadlines {
+  max-width: max-content;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 60px;
+
+  &__item {
+    position: relative;
+    padding-left: 60px;
+  }
+
+  &__item-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #9945FF;
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

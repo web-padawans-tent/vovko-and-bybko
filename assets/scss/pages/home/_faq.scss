@@ -1,0 +1,7 @@
+.faq {
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 100px;
+  }
+}

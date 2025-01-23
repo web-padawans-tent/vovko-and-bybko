@@ -1,0 +1,12 @@
+.about {
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr 540px;
+    gap: 60px;
+  }
+
+  &__form {
+    padding-left: 60px;
+    border-left: 1px solid rgba(#fff, 0.3);
+  }
+}

@@ -1,0 +1,31 @@
+.btn {
+  display: block;
+  padding: 10px 24px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  &--full {
+    width: 100%;
+  }
+
+  &--green {
+    background-color: #14F195;
+    color: #000;
+    border-color: #14F195;
+  }
+
+  &--purple {
+    background-color: #9945FF;
+    border-color: #9945FF;
+  }
+
+  &--white {
+    background-color: #fff;
+    color: #000;
+  }
+}
