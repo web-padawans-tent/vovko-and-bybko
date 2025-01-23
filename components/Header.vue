@@ -91,5 +91,9 @@ export default defineComponent({
 </template>
 
 <style scoped>
-
+.header__title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
 </style>
