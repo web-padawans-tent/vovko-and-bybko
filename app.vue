@@ -6,7 +6,7 @@
     <Header />
     <div class="promo__container container-main">
       <div class="promo__content">
-        <Title level="h1" customClasses="mb-2">СОЗДАЕМ БОЛЬШЕ, ЧЕМ САЙТЫ — СОЗДАЕМ ВАШ УСПЕХ</Title>
+        <Heading level="h1" customClasses="mb-2">СОЗДАЕМ БОЛЬШЕ, ЧЕМ САЙТЫ — СОЗДАЕМ ВАШ УСПЕХ</Heading>
         <div class="mb-5">
           <p>Сделаем лучше чем нашы конкуреты!</p>
         </div>
@@ -24,7 +24,7 @@
     <div class="about__container container-main">
       <div class="about__main">
         <div>
-          <Title level="h2" customClasses="mb-5">ЧЕМ МЫ ЗАНИМАЕМСЯ?</Title>
+          <Heading level="h2" customClasses="mb-5">ЧЕМ МЫ ЗАНИМАЕМСЯ?</Heading>
           <div class="text">
             <p>Находить «изюминку» в каждом проекте, вокруг которой строится весь будущий сайт.</p>
             <p>Это магнит, вызывающий жгучий интерес в глазах Ваших клиентов и притягивающий их внимание.</p>
@@ -33,7 +33,7 @@
           </div>
         </div>
         <form action="/" class="about__form">
-          <Title level="h4" customClasses="mb-3">Закажите <span>бесплатную</span> консультацию</Title>
+          <Heading level="h4" customClasses="mb-3">Закажите <span>бесплатную</span> консультацию</Heading>
           <p class="mb-4">Мы подберем вам оптимальное решение.</p>
           <FormField
               id="email"
@@ -48,7 +48,7 @@
   </section>
   <section class="section-mb">
     <div class="container-main">
-      <Title level="h2" customClasses="mb-8 text-center">ЦЕНА НА РАЗРАБОТКУ САЙТА</Title>
+      <Heading level="h2" customClasses="mb-8 text-center">ЦЕНА НА РАЗРАБОТКУ САЙТА</Heading>
       <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-7">
         <PriceCard
             title="Лендинг"
@@ -79,7 +79,7 @@
   </section>
   <section class="section-mb">
     <div class="container-main">
-      <Title level="h2" customClasses="mb-1 text-center">ЧТО МЫ УМЕЕМ?</Title>
+      <Heading level="h2" customClasses="mb-1 text-center">ЧТО МЫ УМЕЕМ?</Heading>
       <p class="text-center mb-10">Сделаем лучше чем нашы конкуреты</p>
       <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-7">
         <ProductCard title="Blablabla" category="Landing Page" link="#" />
@@ -92,39 +92,39 @@
   </section>
   <section class="section-mb">
     <div class="container-main">
-      <Title level="h2" customClasses="mb-3">ПОЧЕМУ ВАМ СТОИТ ВЫБРАТЬ ИМЕННО НАС?</Title>
+      <Heading level="h2" customClasses="mb-3">ПОЧЕМУ ВАМ СТОИТ ВЫБРАТЬ ИМЕННО НАС?</Heading>
       <p class="ml-auto mb-10 max-w-[800px]">
         Ми розробили вам зручні умови співпраці. Наші клієнти задоволені та рекомендують нас. Професійне просування сайту ефективними та безпечними методами. Гарантія зростання позицій у пошукових системах. Залучення нових клієнтів на ваш сайт із Google.
       </p>
       <ul class="list">
         <li class="list__item">
           <span class="list__item-number">01</span>
-          <Title level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Title>
+          <Heading level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Heading>
           <p>Ваша компания — это индивидуальное творение. Она заслуживает особого внимания, а не «стандартного подхода»</p>
         </li>
         <li class="list__item">
           <span class="list__item-number">02</span>
-          <Title level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Title>
+          <Heading level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Heading>
           <p>Ваша компания — это индивидуальное творение. Она заслуживает особого внимания, а не «стандартного подхода» Ваша компания — это индивидуальное творение. Она заслуживает особого внимания, а не «стандартного подхода»</p>
         </li>
         <li class="list__item">
           <span class="list__item-number">03</span>
-          <Title level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Title>
+          <Heading level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Heading>
           <p>Ваша компания — это индивидуальное творение. Она заслуживает особого внимания, а не «стандартного подхода»</p>
         </li>
         <li class="list__item">
           <span class="list__item-number">04</span>
-          <Title level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Title>
+          <Heading level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Heading>
           <p>Ваша компания — это индивидуальное творение. Она заслуживает особого внимания, а не «стандартного подхода»</p>
         </li>
         <li class="list__item">
           <span class="list__item-number">05</span>
-          <Title level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Title>
+          <Heading level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Heading>
           <p>Ваша компания — это индивидуальное творение. Она заслуживает особого внимания, а не «стандартного подхода»</p>
         </li>
         <li class="list__item">
           <span class="list__item-number">06</span>
-          <Title level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Title>
+          <Heading level="h4">ПОДХОДИМ С ДРУГОЙ СТОРОНЫ</Heading>
           <p>Ваша компания — это индивидуальное творение. Она заслуживает особого внимания, а не «стандартного подхода»</p>
         </li>
       </ul>
@@ -134,7 +134,7 @@
     <div class="container-main">
       <div class="faq__content">
         <div>
-          <Title level="h2" customClasses="max-w-[800px] mb-8">ОТВЕТЫ НА САМЫЕ ПОПУЛЯРНЫЕ ВОПРОСЫ</Title>
+          <Heading level="h2" customClasses="max-w-[800px] mb-8">ОТВЕТЫ НА САМЫЕ ПОПУЛЯРНЫЕ ВОПРОСЫ</Heading>
           <div class="flex flex-col gap-5">
             <Accordion title="ЧТО ДЕЛАТЬ, ЕСЛИ У МЕНЯ НЕТ ТЕХНИЧЕСКОГО ЗАДАНИЯ?">
               Конечно ✅ Более того, мы не ограничиваемся временными рамками, а предоставляем поддержку проекта бессрочно. Вы можете в любой момент, после разработки вашего сайта обращаться к нам по любым корректировкам или за консультацией. ❗️ВАЖНО: тех. поддержка подразумевает устранение неисправностей в элементах сайта или функционале, которые были предусмотрены в ТЗ. ☝️ Если после разработки сайта вы хотите добавить новые визуальные или функциональные элементы - это считается отдельным фронтом работ, который оценивается также отдельно.
@@ -161,14 +161,14 @@
     <div class="container-main">
       <div class="grid grid-cols-[repeat(2,1fr)] gap-14">
         <div>
-          <Title level="h2" customClasses="max-w-[800px] mb-8">ПЕРЕХОДИМ К <span>ДЕЙСТВИЯМ</span></Title>
+          <Heading level="h2" customClasses="max-w-[800px] mb-8">ПЕРЕХОДИМ К <span>ДЕЙСТВИЯМ</span></Heading>
           <div class="text">
             <p>Чтобы создать продукт, который будет «бить в десятку», давайте познакомимся немного поближе!</p>
             <p>Короткая бриф-анкета позволит нам лучше узнать специфику Вашего бизнеса, и сформировать качественное предложение. На заполнение уйдет меньше 5 минут!</p>
           </div>
         </div>
         <form action="/" class="form">
-          <Title level="h3" customClasses="mb-5">Успешные проекты начинают свой путь с этой формы!</Title>
+          <Heading level="h3" customClasses="mb-5">Успешные проекты начинают свой путь с этой формы!</Heading>
           <FormField
               id="email"
               type="text"
@@ -205,12 +205,12 @@
   import SvgSprite from "~/components/SvgSprite.vue";
   import Header from "~/components/Header.vue";
   import Footer from "~/components/Footer.vue";
-  import Title from "~/components/Title.vue";
   import Button from "~/components/Button.vue";
   import FormField from "~/components/FormField.vue";
   import PriceCard from "~/components/PriceCard.vue";
   import ProductCard from "~/components/ProductCard.vue";
   import Accordion from "~/components/Accordion.vue";
+  import Heading from "~/components/Heading.vue";
 </script>
 
 <style>

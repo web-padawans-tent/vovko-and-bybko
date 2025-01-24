@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "Title",
+  name: "Heading",
   props: {
     level: {
       type: String,

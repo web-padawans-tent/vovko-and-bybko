@@ -1,13 +1,13 @@
 <script>
-import Title from "~/components/Title.vue";
 import Button from "~/components/Button.vue";
 import Modal from "~/components/Modal.vue";
+import Heading from "~/components/Heading.vue";
 
 
 export default {
   name: "Footer",
   components: {
-    Title,
+    Heading,
     Button,
     Modal,
   },
@@ -72,7 +72,7 @@ export default {
           <p>{{ texts[0].textUnder }}</p>
         </div>
         <div class="footer__col">
-          <Title level="h6" customClasses="mb-2">УСЛУГИ</Title>
+          <Heading level="h6" customClasses="mb-2">УСЛУГИ</Heading>
           <ul class="footer__list">
             <li class="footer__list-item" v-for="(item, i) in menuServices" :key="i">
               <a :href=item.link class="footer__list-link">{{ item.text }}</a>
@@ -80,7 +80,7 @@ export default {
           </ul>
         </div>
         <div class="footer__col">
-          <Title level="h6" customClasses="mb-2">О КОМПАНИИ</Title>
+          <Heading level="h6" customClasses="mb-2">О КОМПАНИИ</Heading>
           <ul class="footer__list">
             <li class="footer__list-item" v-for="(item, i) in about" :key="i">
               <a :href=item.link class="footer__list-link">{{ item.text }}</a>
@@ -88,7 +88,7 @@ export default {
           </ul>
         </div>
         <div class="footer__col">
-          <Title level="h6" customClasses="mb-2">ОСТАЛИСЬ ВОПРОСЫ?</Title>
+          <Heading level="h6" customClasses="mb-2">ОСТАЛИСЬ ВОПРОСЫ?</Heading>
           <Button @click="showModal = true" color="purple" :fullWidth="true">ОСТАВИТЬ ЗАЯВКУ</Button>
         </div>
       </div>

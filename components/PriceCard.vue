@@ -1,6 +1,6 @@
 <template>
   <div class="price-card">
-    <h6 class="title title--h6">{{title}}</h6>
+    <Heading level="h6">{{title}}</Heading>
     <p class="price">{{ price }}</p>
     <div class="deadlines">Сроки: {{ deadlines }}</div>
     <p>{{ description }}</p>
@@ -9,8 +9,13 @@
 </template>
 
 <script>
+import Heading from '~/components/Heading'
+
 export default {
   name: "PriceCard",
+  components: {
+    Heading
+  },
   props: {
     title: {
       type: String,
