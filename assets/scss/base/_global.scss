@@ -1,3 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+p {
+  b {
+    color: #fff;
+    font-weight: 500;
+  }
+}
+
 .container-main {
   max-width: 1440px;
   padding: 0 15px;

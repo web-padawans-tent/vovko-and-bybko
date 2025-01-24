@@ -13,7 +13,8 @@
 @use 'layout/footer';
 
 // Pages styles
-@use 'pages/home/index';
+@use 'pages/home/home';
+@use 'pages/contact/contact';
 
 // Component styles
 @use 'components/button';

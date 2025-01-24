@@ -82,7 +82,7 @@ export default defineComponent({
           <router-link to="/about" class="hover:text-gray-300">About</router-link>
         </li>
         <li>
-          <router-link to="/contact" class="hover:text-gray-300">Contact</router-link>
+          <router-link to="/pages/contact" class="hover:text-gray-300">Contact</router-link>
         </li>
       </ul>
     </div>

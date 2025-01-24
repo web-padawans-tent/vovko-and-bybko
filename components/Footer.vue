@@ -89,7 +89,7 @@ export default {
         </div>
         <div class="footer__col">
           <Heading level="h6" customClasses="mb-2">ОСТАЛИСЬ ВОПРОСЫ?</Heading>
-          <Button @click="showModal = true" color="purple" :fullWidth="true">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <Button @click="showModal = true" color="purple">ОСТАВИТЬ ЗАЯВКУ</Button>
         </div>
       </div>
       <p class="text-center">{{ texts[0].textLove }}</p>
