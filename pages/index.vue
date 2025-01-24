@@ -164,34 +164,7 @@
             <p>Короткая бриф-анкета позволит нам лучше узнать специфику Вашего бизнеса, и сформировать качественное предложение. На заполнение уйдет меньше 5 минут!</p>
           </div>
         </div>
-        <form action="/" class="form">
-          <Heading level="h3" customClasses="mb-5">Успешные проекты начинают свой путь с этой формы!</Heading>
-          <FormField
-              id="email"
-              type="text"
-              placeholder="Имя"
-              customClass="mb-2"
-          />
-          <FormField
-              id="email"
-              type="email"
-              placeholder="Email"
-              customClass="mb-2"
-          />
-          <FormField
-              id="email"
-              type="text"
-              placeholder="Ваш Telegram"
-              customClass="mb-2"
-          />
-          <FormField
-              id="email"
-              type="textarea"
-              placeholder="Описание Заказа"
-              customClass="mb-2"
-          />
-          <Button color="green" customClass="ml-auto mt-1">ОТПРАВИТЬ</Button>
-        </form>
+        <Form title="Успешные проекты начинают свой путь с этой формы!" text="Заполните форму и с вами сконтактирует наш специалист" />
       </div>
     </div>
   </section>
@@ -205,6 +178,7 @@
   import ProductCard from "~/components/ProductCard.vue";
   import Accordion from "~/components/Accordion.vue";
   import Heading from "~/components/Heading.vue";
+  import Form from "~/components/Form.vue";
 </script>
 
 <style>

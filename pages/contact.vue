@@ -1,8 +1,7 @@
 <script setup>
   import Header from "~/components/Header.vue";
   import Heading from "~/components/Heading.vue";
-  import FormField from "~/components/FormField.vue";
-  import Button from "~/components/Button.vue";
+  import Form from "~/components/Form.vue";
 </script>
 
 <template>
@@ -35,35 +34,11 @@
         <video muted playsinline autoplay loop class="contact__decor">
           <source src="/public/videos/contact-anim.mp4" type="video/mp4"></source>
         </video>
-        <form action="/" class="form contact__form">
-          <Heading level="h3" customClasses="mb-3">ГОТОВЫ ЗАКАЗАТЬ УСЛУГИ?</Heading>
-          <p class="mb-3">Заполните форму и с вами сконтактирует наш специалист</p>
-          <FormField
-              id="email"
-              type="text"
-              placeholder="Имя"
-              customClass="mb-2"
-          />
-          <FormField
-              id="email"
-              type="email"
-              placeholder="Email"
-              customClass="mb-2"
-          />
-          <FormField
-              id="email"
-              type="text"
-              placeholder="Ваш Telegram"
-              customClass="mb-2"
-          />
-          <FormField
-              id="email"
-              type="textarea"
-              placeholder="Описание Заказа"
-              customClass="mb-2"
-          />
-          <Button color="green" customClass="ml-auto mt-1">ОТПРАВИТЬ</Button>
-        </form>
+        <Form
+            title="ГОТОВЫ ЗАКАЗАТЬ УСЛУГИ?"
+            text="Заполните форму и с вами сконтактирует наш специалист"
+            customClasses="contact__form"
+        />
       </div>
     </div>
   </section>
