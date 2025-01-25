@@ -15,6 +15,7 @@
   &__container {
     position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     flex: 1;
@@ -29,6 +30,10 @@
     transform: translate(0, -50%);
     z-index: -1;
     max-width: 1200px;
+  }
+
+  &__img {
+    max-width: 680px;
   }
 
   &__actions {

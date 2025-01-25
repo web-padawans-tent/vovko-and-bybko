@@ -1,5 +1,6 @@
 .btn {
   display: block;
+  max-width: max-content;
   padding: 10px 24px;
   border-radius: 20px;
   border: 1px solid #fff;
@@ -10,6 +11,7 @@
   line-height: 1.2;
 
   &--full {
+    max-width: 100%;
     width: 100%;
   }
 

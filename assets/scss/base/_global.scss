@@ -43,9 +43,23 @@ p {
   grid-template-columns: repeat(2, 1fr);
   gap: 30px 60px;
 
+  &--scattered {
+    grid-template-columns: 1fr;
+
+    .list__item:nth-child(even) {
+      margin-left: auto;
+    }
+  }
+
+  &--col-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
   &__item {
     position: relative;
     padding-left: 60px;
+    max-width: 680px;
   }
 
   &__item-number {
