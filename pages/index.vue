@@ -1,6 +1,15 @@
+<script setup>
+import Button from "~/components/Button.vue";
+import FormField from "~/components/FormField.vue";
+import PriceCard from "~/components/PriceCard.vue";
+import ProductCard from "~/components/ProductCard.vue";
+import Accordion from "~/components/Accordion.vue";
+import Heading from "~/components/Heading.vue";
+import Form from "~/components/Form.vue";
+</script>
+
 <template>
   <section class="promo section-mb">
-    <Header />
     <div class="promo__container container-main">
       <div class="promo__content">
         <Heading level="h1" customClasses="mb-2">СОЗДАЕМ БОЛЬШЕ, ЧЕМ САЙТЫ — СОЗДАЕМ ВАШ УСПЕХ</Heading>
@@ -13,7 +22,7 @@
         </div>
       </div>
       <video muted playsinline autoplay loop class="promo__decor">
-        <source src="/public/videos/promo-anim.mp4" type="video/mp4"></source>
+        <source src="/public/videos/promo-anim.mp4" type="video/mp4">
       </video>
     </div>
   </section>
@@ -29,7 +38,7 @@
             <p>Находить «изюминку» в каждом проекте, вокруг которой строится весь будущий сайт.</p>
           </div>
         </div>
-        <form action="/" class="about__form">
+        <Form action="/" class="about__form" title="">
           <Heading level="h4" customClasses="mb-3">Закажите <span>бесплатную</span> консультацию</Heading>
           <p class="mb-4">Мы подберем вам оптимальное решение.</p>
           <FormField
@@ -39,7 +48,7 @@
               customClass="mb-5"
           />
           <Button color="purple" :fullWidth="true">ОСТАВИТЬ ЗАЯВКУ</Button>
-        </form>
+        </Form>
       </div>
     </div>
   </section>
@@ -169,20 +178,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-  import Header from "~/components/Header.vue";
-  import Button from "~/components/Button.vue";
-  import FormField from "~/components/FormField.vue";
-  import PriceCard from "~/components/PriceCard.vue";
-  import ProductCard from "~/components/ProductCard.vue";
-  import Accordion from "~/components/Accordion.vue";
-  import Heading from "~/components/Heading.vue";
-  import Form from "~/components/Form.vue";
-</script>
-
-<style>
-  body {
-    font-family: Helvetica, sans-serif;
-  }
-</style>

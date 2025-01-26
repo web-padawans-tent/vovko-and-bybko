@@ -1,16 +1,26 @@
 <template>
   <div class="wrapper">
+    <Header/>
     <div class="hidden">
-      <SvgSprite />
+      <SvgSprite/>
     </div>
     <main>
-      <nuxt-page />
+      <nuxt-page/>
     </main>
     <Footer/>
+    <Modal />
   </div>
 </template>
 
 <script setup lang="ts">
-  import SvgSprite from "~/components/SvgSprite.vue";
-  import Footer from "~/components/Footer.vue";
+import SvgSprite from "~/components/SvgSprite.vue";
+import Header from "~/components/Header.vue";
+import Footer from "~/components/Footer.vue";
+import Modal from "~/components/Modal.vue";
 </script>
+
+<style>
+body {
+  font-family: Helvetica, sans-serif;
+}
+</style>

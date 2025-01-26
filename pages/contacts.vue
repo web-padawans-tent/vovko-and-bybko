@@ -1,11 +1,9 @@
 <script setup>
-  import Header from "~/components/Header.vue";
   import Heading from "~/components/Heading.vue";
   import Form from "~/components/Form.vue";
 </script>
 
 <template>
-  <Header />
   <section class="contact">
     <div class="container-main">
       <Heading level="h1" customClasses="contact__title">КОНТАКТЫ</Heading>
@@ -32,7 +30,7 @@
       </ul>
       <div class="contact__main">
         <video muted playsinline autoplay loop class="contact__decor">
-          <source src="/public/videos/contact-anim.mp4" type="video/mp4"></source>
+          <source src="/public/videos/contact-anim.mp4" type="video/mp4">
         </video>
         <Form
             title="ГОТОВЫ ЗАКАЗАТЬ УСЛУГИ?"

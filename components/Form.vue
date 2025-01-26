@@ -1,5 +1,5 @@
 <template>
-  <form action="/" :class="['form', customClasses]">
+  <form action="/" :class="['form', customClasses]" title="">
     <Heading level="h3" customClasses="mb-3">{{ title }}</Heading>
     <p v-if="text" class="mb-3">{{ text }}</p>
     <FormField
