@@ -1,9 +1,9 @@
 <template>
+  <div class="hidden">
+    <SvgSprite/>
+  </div>
   <div class="wrapper">
     <Header/>
-    <div class="hidden">
-      <SvgSprite/>
-    </div>
     <main>
       <nuxt-page/>
     </main>

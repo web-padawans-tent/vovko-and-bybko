@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Form from "~/components/Form.vue";
-import { useModalStore } from '~/stores/modalStore';
+import {useModalStore} from '~/stores/modalStore';
 
 const modalStore = useModalStore();
 
@@ -11,22 +11,24 @@ const closeModal = () => {
 
 
 <template>
-  <div v-if="modalStore.isModalVisible" class="container-modal">
+  <div v-if="modalStore.isModalVisible" class="container--modal">
     <div class="modal">
       <div class="modal__close">
         <button class="modal__close--btn" @click="closeModal">
-          Закрыть
+          <svg class="modal__close--icon">
+            <use href="#close"></use>
+          </svg>
         </button>
       </div>
       <div class="modal__content">
-        <Form title="ОСТАВЬТЕ ЗАЯВКУ" />
+        <Form title="ОСТАВЬТЕ ЗАЯВКУ"/>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
-.container-modal {
+<style lang="scss">
+.container--modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -38,14 +40,14 @@ const closeModal = () => {
   justify-content: center;
   align-items: center;
   .modal {
-    min-width: 300px;
+    min-width: 760px;
     min-height: 300px;
     background: #19161C;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 13px );
-    -webkit-backdrop-filter: blur( 13px );
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 80px 125px;
     display: flex;
     flex-direction: column;
@@ -53,6 +55,7 @@ const closeModal = () => {
       display: flex;
       justify-content: flex-end;
       width: 100%;
+      position: relative;
       &--btn {
         border: none;
         background-color: transparent;
@@ -60,10 +63,17 @@ const closeModal = () => {
         outline: none;
         display: flex;
         align-items: center;
+        color: #FFF;
+        position: relative;
       }
       &--icon {
-        color: #6c757d;
-        font-size: 20px;
+        width: 45px;
+        height: 45px;
+        stroke: none;
+        fill: currentColor;
+        position: absolute;
+        top: -60px;
+        right: -100px;
       }
     }
   }

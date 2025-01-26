@@ -1,11 +1,11 @@
 <script setup>
-import Button from "~/components/Button.vue";
-import FormField from "~/components/FormField.vue";
-import PriceCard from "~/components/PriceCard.vue";
-import ProductCard from "~/components/ProductCard.vue";
-import Accordion from "~/components/Accordion.vue";
-import Heading from "~/components/Heading.vue";
-import Form from "~/components/Form.vue";
+import { useModalStore } from "~/stores/modalStore";
+
+const modalStore = useModalStore();
+
+const openModal = () => {
+  modalStore.openModal();
+}
 </script>
 
 <template>
@@ -47,7 +47,7 @@ import Form from "~/components/Form.vue";
               placeholder="Email"
               customClass="mb-5"
           />
-          <Button color="purple" :fullWidth="true">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <Button color="purple" :fullWidth="true" @click="openModal">ОСТАВИТЬ ЗАЯВКУ</Button>
         </Form>
       </div>
     </div>
