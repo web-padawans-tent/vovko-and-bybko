@@ -1,22 +1,4 @@
-<template>
-  <div class="form-field">
-    <component
-        :is="inputType"
-        :id="id"
-        :type="isInput ? type : null"
-        v-model="internalValue"
-        :placeholder="placeholder"
-        :class="['form-field__input', customClass]"
-        :rows="isTextarea ? rows : null"
-        :maxlength="maxlength"
-        :disabled="disabled"
-        @input="$emit('input', internalValue)"
-    ></component>
-    <p v-if="error" class="form-field__error">{{ error }}</p>
-  </div>
-</template>
-
-<script>
+<script lang="ts">
 export default {
   name: "FormField",
   props: {
@@ -81,3 +63,21 @@ export default {
   }
 };
 </script>
+
+<template>
+  <div class="form-field">
+    <component
+        :is="inputType"
+        :id="id"
+        :type="isInput ? type : null"
+        v-model="internalValue"
+        :placeholder="placeholder"
+        :class="['form-field__input', customClass]"
+        :rows="isTextarea ? rows : null"
+        :maxlength="maxlength"
+        :disabled="disabled"
+        @input="$emit('input', internalValue)"
+    ></component>
+    <p v-if="error" class="form-field__error">{{ error }}</p>
+  </div>
+</template>

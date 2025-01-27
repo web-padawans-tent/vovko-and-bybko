@@ -1,18 +1,42 @@
-<script setup lang="ts">
+<script lang="ts">
 import Form from "~/components/Form.vue";
-import {useModalStore} from '~/stores/modalStore';
+import { useModalStore } from '~/stores/modalStore';
 
-const modalStore = useModalStore();
-
-const closeModal = () => {
-  modalStore.closeModal();
-}
+export default {
+  name: 'Modal',
+  components: {
+    Form
+  },
+  data() {
+    return {
+      modalStore: useModalStore()
+    };
+  },
+  methods: {
+    closeModal() {
+      this.modalStore.closeModal();
+    },
+    onModalClick(e) {
+      e.stopPropagation();
+    },
+    onKeydown(e) {
+      if (e.key === 'Escape') {
+        this.closeModal();
+      }
+    }
+  },
+  mounted() {
+    window.addEventListener('keydown', this.onKeydown);
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.onKeydown);
+  }
+};
 </script>
 
-
 <template>
-  <div v-if="modalStore.isModalVisible" class="container--modal">
-    <div class="modal">
+  <div v-if="modalStore.isModalVisible" class="container--modal" @click="closeModal">
+    <div class="modal" @click="onModalClick">
       <div class="modal__close">
         <button class="modal__close--btn" @click="closeModal">
           <svg class="modal__close--icon">

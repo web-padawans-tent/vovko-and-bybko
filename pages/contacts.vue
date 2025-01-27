@@ -1,6 +1,5 @@
-<script setup>
-  import Heading from "~/components/Heading.vue";
-  import Form from "~/components/Form.vue";
+<script lang="ts">
+
 </script>
 
 <template>
@@ -30,7 +29,7 @@
       </ul>
       <div class="contact__main">
         <video muted playsinline autoplay loop class="contact__decor">
-          <source src="/public/videos/contact-anim.mp4" type="video/mp4">
+          <source src="/assets/videos/contact-anim.mp4" type="video/mp4">
         </video>
         <Form
             title="ГОТОВЫ ЗАКАЗАТЬ УСЛУГИ?"

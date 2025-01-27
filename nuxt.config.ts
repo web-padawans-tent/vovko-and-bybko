@@ -13,5 +13,10 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxt/fonts', '@nuxt/icon', '@pinia/nuxt']
+  modules: [
+    '@nuxt/fonts',
+    '@nuxt/icon',
+    '@pinia/nuxt',
+    '@vee-validate/nuxt'
+  ]
 })

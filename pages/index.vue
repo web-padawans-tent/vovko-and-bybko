@@ -1,11 +1,33 @@
-<script setup>
+<script lang="ts">
 import { useModalStore } from "~/stores/modalStore";
+import Heading from "~/components/Heading.vue";
+import Button from "~/components/Button.vue";
+import Form from "~/components/Form.vue";
+import Accordion from "~/components/Accordion.vue";
+import PriceCard from "~/components/PriceCard.vue";
+import ProductCard from "~/components/ProductCard.vue";
 
-const modalStore = useModalStore();
-
-const openModal = () => {
-  modalStore.openModal();
-}
+export default {
+  name: 'Page',
+  components: {
+    Heading,
+    Button,
+    Form,
+    Accordion,
+    PriceCard,
+    ProductCard
+  },
+  data() {
+    return {
+      modalStore: useModalStore()
+    };
+  },
+  methods: {
+    openModal() {
+      this.modalStore.openModal();
+    }
+  }
+};
 </script>
 
 <template>
@@ -17,12 +39,12 @@ const openModal = () => {
           <p>Сделаем лучше чем нашы конкуреты!</p>
         </div>
         <div class="promo__actions">
-          <Button color="purple" :fullWidth="true">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <Button color="purple" :fullWidth="true" @click="openModal">ОСТАВИТЬ ЗАЯВКУ</Button>
           <Button :fullWidth="true">Наши работы</Button>
         </div>
       </div>
       <video muted playsinline autoplay loop class="promo__decor">
-        <source src="/public/videos/promo-anim.mp4" type="video/mp4">
+        <source src="/assets/videos/promo-anim.mp4" type="video/mp4">
       </video>
     </div>
   </section>
@@ -159,7 +181,7 @@ const openModal = () => {
             </Accordion>
           </div>
         </div>
-        <img class="faq__decor" src="public/images/faq-decor.svg" alt="">
+        <img class="faq__decor" src="../assets/images/faq-decor.svg" alt="">
       </div>
     </div>
   </section>
@@ -178,3 +200,4 @@ const openModal = () => {
     </div>
   </section>
 </template>
+
