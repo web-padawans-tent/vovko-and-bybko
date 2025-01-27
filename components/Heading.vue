@@ -1,13 +1,4 @@
-<template>
-  <component
-      :is="tag"
-      :class="['title', sizeClass, customClasses]"
-  >
-    <slot></slot>
-  </component>
-</template>
-
-<script>
+<script lang="ts">
 export default {
   name: "Heading",
   props: {
@@ -31,3 +22,12 @@ export default {
   },
 };
 </script>
+
+<template>
+  <component
+      :is="tag"
+      :class="['title', sizeClass, customClasses]"
+  >
+    <slot></slot>
+  </component>
+</template>

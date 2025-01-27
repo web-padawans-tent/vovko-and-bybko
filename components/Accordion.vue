@@ -1,21 +1,4 @@
-<template>
-  <div class="accordion" :class="{ 'accordion--active': isActive }">
-    <button
-        type="button"
-        class="accordion__trigger"
-        @click="toggleAccordion">
-      <span class="accordion__trigger-text">{{ title }}</span>
-      <span class="accordion__trigger-icon" :class="{ 'accordion__trigger-icon--active': isActive }"></span>
-    </button>
-    <transition name="accordion" @enter="onEnter" @leave="onLeave">
-      <div ref="content" class="accordion__content" v-if="isActive">
-        <slot></slot>
-      </div>
-    </transition>
-  </div>
-</template>
-
-<script>
+<script lang="ts">
 export default {
   name: 'Accordion',
   props: {
@@ -46,3 +29,20 @@ export default {
   }
 };
 </script>
+
+<template>
+  <div class="accordion" :class="{ 'accordion--active': isActive }">
+    <button
+        type="button"
+        class="accordion__trigger"
+        @click="toggleAccordion">
+      <span class="accordion__trigger-text">{{ title }}</span>
+      <span class="accordion__trigger-icon" :class="{ 'accordion__trigger-icon--active': isActive }"></span>
+    </button>
+    <transition name="accordion" @enter="onEnter" @leave="onLeave">
+      <div ref="content" class="accordion__content" v-if="isActive">
+        <slot></slot>
+      </div>
+    </transition>
+  </div>
+</template>

@@ -1,13 +1,4 @@
-<template>
-  <button
-      :class="['btn', colorClass, customClass, { 'btn--full': fullWidth }]"
-      @click="onClick"
-  >
-    <slot></slot>
-  </button>
-</template>
-
-<script>
+<script lang="ts">
 export default {
   name: "Button",
   props: {
@@ -37,3 +28,13 @@ export default {
   },
 };
 </script>
+
+<template>
+  <button
+      :class="['btn', colorClass, customClass, { 'btn--full': fullWidth }]"
+      @click="onClick"
+  >
+    <slot></slot>
+  </button>
+</template>
+

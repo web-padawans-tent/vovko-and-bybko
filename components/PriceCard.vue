@@ -1,14 +1,4 @@
-<template>
-  <div class="price-card">
-    <Heading level="h6">{{title}}</Heading>
-    <p class="price">{{ price }}</p>
-    <div class="deadlines">Сроки: {{ deadlines }}</div>
-    <p>{{ description }}</p>
-    <Button :color="buttonColor" :fullWidth="buttonFullWidth" customClass="price-card__btn">{{ buttonText }}</Button>
-  </div>
-</template>
-
-<script>
+<script lang="ts">
 import Heading from '~/components/Heading'
 
 export default {
@@ -48,3 +38,13 @@ export default {
   }
 };
 </script>
+
+<template>
+  <div class="price-card">
+    <Heading level="h6">{{title}}</Heading>
+    <p class="price">{{ price }}</p>
+    <div class="deadlines">Сроки: {{ deadlines }}</div>
+    <p>{{ description }}</p>
+    <Button :color="buttonColor" :fullWidth="buttonFullWidth" customClass="price-card__btn">{{ buttonText }}</Button>
+  </div>
+</template>

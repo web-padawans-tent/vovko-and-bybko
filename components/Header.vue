@@ -1,6 +1,6 @@
 <script lang="ts">
-import {defineComponent} from 'vue'
-import Button from "~/components/Button.vue";
+import { defineComponent } from 'vue'
+import { useModalStore } from "~/stores/modalStore";
 
 export default defineComponent({
   components: {
@@ -28,6 +28,12 @@ export default defineComponent({
         },
       ]
     }
+  },
+  methods: {
+    openModal() {
+      const modalStore = useModalStore();
+      modalStore.openModal();
+    }
   }
 })
 </script>
@@ -39,7 +45,7 @@ export default defineComponent({
       <!-- Логотип -->
       <div class="z-logo flex gap-3 items-center">
         <router-link to="/">
-          <img class="max-w-10" src="/public/images/Logo.png" alt="logo"/>
+          <img class="max-w-10" src="/assets/images/Logo.png" alt="logo"/>
         </router-link>
 
         <router-link to="/">
@@ -61,7 +67,7 @@ export default defineComponent({
             </svg>
           </li>
         </ul>
-        <Button color="white">ОСТАВИТЬ ЗАЯВКУ</Button>
+        <Button @click="openModal" color="white">ОСТАВИТЬ ЗАЯВКУ</Button>
       </nav>
 
       <!-- Бургер-меню для мобильных устройств -->
@@ -82,7 +88,7 @@ export default defineComponent({
           <router-link to="/about" class="hover:text-gray-300">About</router-link>
         </li>
         <li>
-          <router-link to="/pages/contact" class="hover:text-gray-300">Contact</router-link>
+          <router-link to="/pages/contacts" class="hover:text-gray-300">Contact</router-link>
         </li>
       </ul>
     </div>

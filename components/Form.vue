@@ -1,5 +1,34 @@
+<script lang="ts">
+import FormField from "~/components/FormField.vue";
+import Button from "~/components/Button.vue";
+import Heading from "~/components/Heading.vue";
+
+export default {
+  name: "Form",
+  components: {
+    Heading,
+    Button,
+    FormField
+  },
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    text: {
+      type: String,
+      default: ""
+    },
+    customClasses: {
+      type: [String, Array, Object],
+      default: "",
+    },
+  }
+};
+</script>
+
 <template>
-  <form action="/" :class="['form', customClasses]">
+  <form action="/" :class="['form', customClasses]" title="">
     <Heading level="h3" customClasses="mb-3">{{ title }}</Heading>
     <p v-if="text" class="mb-3">{{ text }}</p>
     <FormField
@@ -29,32 +58,3 @@
     <Button color="green" customClass="ml-auto mt-1">ОТПРАВИТЬ</Button>
   </form>
 </template>
-
-<script>
-import FormField from "~/components/FormField.vue";
-import Button from "~/components/Button.vue";
-import Heading from "~/components/Heading.vue";
-
-export default {
-  name: "Form",
-  components: {
-    Heading,
-    Button,
-    FormField
-  },
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    text: {
-      type: String,
-      default: ""
-    },
-    customClasses: {
-      type: [String, Array, Object],
-      default: "",
-    },
-  }
-};
-</script>
