@@ -1,11 +1,8 @@
-<script setup lang="ts">
-  import Header from "~/components/Header.vue";
-  import Heading from "~/components/Heading.vue";
-  import Form from "~/components/Form.vue";
+<script lang="ts">
+
 </script>
 
 <template>
-  <Header/>
   <section class="portfolio section-mb">
     <div class="container-main">
       <div class="portfolio__content">
@@ -18,14 +15,14 @@
         </div>
       </div>
       <div class="portfolio__main">
-        <img class="portfolio__img portfolio__img--1" src="/public/images/portfolio-1.jpg" alt="">
-        <img class="portfolio__img" src="/public/images/portfolio-2.jpg" alt="">
-        <img class="portfolio__img" src="/public/images/portfolio-3.jpg" alt="">
-        <img class="portfolio__img" src="/public/images/portfolio-4.jpg" alt="">
+        <img class="portfolio__img portfolio__img--1" src="/assets/images/portfolio-1.jpg" alt="">
+        <img class="portfolio__img" src="/assets/images/portfolio-2.jpg" alt="">
+        <img class="portfolio__img" src="/assets/images/portfolio-3.jpg" alt="">
+        <img class="portfolio__img" src="/assets/images/portfolio-4.jpg" alt="">
       </div>
       <div class="portfolio__action">
         <video muted playsinline autoplay loop class="portfolio__decor">
-          <source src="/public/videos/contact-anim.mp4" type="video/mp4"></source>
+          <source src="/assets/videos/contact-anim.mp4" type="video/mp4">
         </video>
         <Form
             title="ГОТОВЫ ЗАКАЗАТЬ УСЛУГИ?"

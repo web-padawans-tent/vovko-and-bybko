@@ -1,15 +1,23 @@
-<script setup lang="ts">
-  import Header from "~/components/Header.vue";
-  import Heading from "~/components/Heading.vue";
-  import Accordion from "~/components/Accordion.vue";
-  import Form from "~/components/Form.vue";
-  import FormField from "~/components/FormField.vue";
-  import Button from "~/components/Button.vue";
+<script lang="ts">
+import { useModalStore } from "~/stores/modalStore";
+
+export default {
+  name: 'landing',
+  data() {
+    return {
+      modalStore: useModalStore()
+    };
+  },
+  methods: {
+    openModal() {
+      this.modalStore.openModal();
+    }
+  }
+};
 </script>
 
 <template>
   <section class="promo section-mb">
-    <Header/>
     <div class="promo__container container-main">
       <div class="promo__content">
         <Heading level="h1" customClasses="mb-1">Landing Page</Heading>
@@ -18,10 +26,10 @@
           <p>Landing Page максимально эффективно доносит выгоду Вашего продукта до посетителя. Его основная задача — увеличение конверсии.</p>
           <p>Между потенциальным клиентом и компанией только одна страница, но она способна заменить целый отдел продаж!</p>
         </div>
-        <Button color="purple">ОСТАВИТЬ ЗАЯВКУ</Button>
+        <Button color="purple" @click="openModal" class="z-btn_style_default z-btn_md">ОСТАВИТЬ ЗАЯВКУ</Button>
       </div>
       <div class="promo__img">
-        <img src="/public/images/landing.png" alt="">
+        <img src="/assets/images/landing.png" alt="">
       </div>
     </div>
   </section>
@@ -44,7 +52,7 @@
               placeholder="Email"
               customClass="mb-5"
           />
-          <Button color="purple" :fullWidth="true">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <Button color="purple" :fullWidth="true" class="z-btn_style_default z-btn_md">ОСТАВИТЬ ЗАЯВКУ</Button>
         </form>
       </div>
     </div>
@@ -166,7 +174,7 @@
             </Accordion>
           </div>
         </div>
-        <img class="faq__decor" src="public/images/faq-decor.svg" alt="">
+        <img class="faq__decor" src="assets/images/faq-decor.svg" alt="">
       </div>
     </div>
   </section>

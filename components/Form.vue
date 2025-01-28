@@ -55,6 +55,6 @@ export default {
         placeholder="Описание Заказа"
         customClass="mb-2"
     />
-    <Button color="green" customClass="ml-auto mt-1">ОТПРАВИТЬ</Button>
+    <Button color="green" customClass="z-btn_style_default z-btn_md m-auto mt-1">ОТПРАВИТЬ</Button>
   </form>
 </template>

@@ -1,22 +1,8 @@
 <script lang="ts">
 import { useModalStore } from "~/stores/modalStore";
-import Heading from "~/components/Heading.vue";
-import Button from "~/components/Button.vue";
-import Form from "~/components/Form.vue";
-import Accordion from "~/components/Accordion.vue";
-import PriceCard from "~/components/PriceCard.vue";
-import ProductCard from "~/components/ProductCard.vue";
 
 export default {
-  name: 'Page',
-  components: {
-    Heading,
-    Button,
-    Form,
-    Accordion,
-    PriceCard,
-    ProductCard
-  },
+  name: 'index',
   data() {
     return {
       modalStore: useModalStore()
@@ -39,8 +25,8 @@ export default {
           <p>Сделаем лучше чем нашы конкуреты!</p>
         </div>
         <div class="promo__actions">
-          <Button color="purple" :fullWidth="true" @click="openModal">ОСТАВИТЬ ЗАЯВКУ</Button>
-          <Button :fullWidth="true">Наши работы</Button>
+          <Button color="purple" class="z-btn_style_default z-btn_md" :fullWidth="true" @click="openModal">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <Button :fullWidth="true" color="white" class="z-btn_style_ghost z-btn_md">Наши работы</Button>
         </div>
       </div>
       <video muted playsinline autoplay loop class="promo__decor">
@@ -69,7 +55,7 @@ export default {
               placeholder="Email"
               customClass="mb-5"
           />
-          <Button color="purple" :fullWidth="true" @click="openModal">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <Button color="purple" :fullWidth="true" @click="openModal" class="z-btn_style_default z-btn_md">ОСТАВИТЬ ЗАЯВКУ</Button>
         </Form>
       </div>
     </div>
