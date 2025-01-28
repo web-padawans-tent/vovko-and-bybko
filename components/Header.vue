@@ -33,17 +33,17 @@ export default defineComponent({
 </script>
 
 <template>
-  <header class="header bg-black p-3">
+  <header class="header bg-black">
     <div class="header__container container-main">
-      <div class="header__main mx-auto flex items-center">
+      <div class="header__main">
       <!-- Логотип -->
-      <div class="z-logo flex gap-3 items-center">
+      <div class="logo flex gap-3 items-center">
         <router-link to="/">
-          <img class="max-w-10" src="/public/images/Logo.png" alt="logo"/>
+          <img class="logo__img max-w-10" src="/public/images/Logo.png" alt="logo"/>
         </router-link>
 
         <router-link to="/">
-          <span class="header__title text-white text-xl">
+          <span class="logo__text text-white text-xl">
             Vovko & Bybko Studio
           </span>
         </router-link>
@@ -51,7 +51,7 @@ export default defineComponent({
 
       <!-- Меню навигации -->
       <nav class="header__nav ml-auto">
-        <ul class="flex space-x-6">
+        <ul class="header__nav-list flex space-x-6">
           <li class="flex items-center gap-2" v-for="(item, index) in navItems" :key="index">
             <a :href="item.link" class="text-xl text-white">
               {{ item.text }}
@@ -65,7 +65,7 @@ export default defineComponent({
       </nav>
 
       <!-- Бургер-меню для мобильных устройств -->
-      <div @click="toggleMenu" class="md:hidden cursor-pointer">
+      <div @click="toggleMenu" class="header__menu-mobile">
         <span class="block w-6 h-0.5 bg-white mb-2"></span>
         <span class="block w-6 h-0.5 bg-white mb-2"></span>
         <span class="block w-6 h-0.5 bg-white"></span>
@@ -90,10 +90,3 @@ export default defineComponent({
   </header>
 </template>
 
-<style scoped>
-.header__title {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-</style>

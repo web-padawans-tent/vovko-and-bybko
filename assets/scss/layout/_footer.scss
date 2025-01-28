@@ -1,18 +1,44 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
 .footer {
-  padding: 60px 0 30px;
+  padding: pxToRem(60) 0 pxToRem(30);
   color: #fff;
   border-top: 1px solid rgba(#fff, 0.3);
+
+  @media (max-width: em($mobile)) {
+    .logo {
+      justify-content: center;
+    }
+  }
 
   &__main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 50px;
-    margin-bottom: 40px;
+    justify-content: space-between;
+    gap: pxToRem(50);
+    margin-bottom: pxToRem(40);
+
+    @media (max-width: em($tablet)) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: pxToRem(30);
+    }
+
+    @media (max-width: em($mobile)) {
+      grid-template-columns: 1fr;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @media (max-width: em($mobile)) {
+      gap: pxToRem(20);
+    }
   }
 
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: pxToRem(5);
   }
 }

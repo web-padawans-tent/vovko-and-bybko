@@ -1,3 +1,7 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -22,11 +26,10 @@ p {
 }
 
 .section-mb {
-  margin-bottom: 140px;
+  @include adaptiveValue('margin-bottom', 140, 100);
 }
 
 .price {
-  font-size: 18px;
   font-weight: 600;
 }
 
@@ -42,6 +45,14 @@ p {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px 60px;
+
+  @media (max-width: em($tablet)) {
+    gap: 20px 30px;
+  }
+
+  @media (max-width: em($mobile)) {
+   grid-template-columns: 1fr;
+  }
 
   &--scattered {
     grid-template-columns: 1fr;
@@ -60,6 +71,14 @@ p {
     position: relative;
     padding-left: 60px;
     max-width: 680px;
+
+    @media (max-width: em($mobileSmall)) {
+      padding-left: 45px;
+    }
+  }
+
+  &__item-title {
+    margin-bottom: pxToRem(8);
   }
 
   &__item-number {
@@ -67,9 +86,13 @@ p {
     top: 0;
     left: 0;
     color: #9945FF;
-    font-size: 36px;
+    font-size: pxToRem(36);
     line-height: 1.2;
     font-weight: 500;
+
+    @media (max-width: em($mobileSmall)) {
+      font-size: pxToRem(28);
+    }
   }
 }
 
@@ -77,4 +100,26 @@ p {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media (max-width: em($mobile)) {
+    gap: 5px;
+  }
+}
+
+.logo {
+  &__img {
+    @media (max-width: em($mobileSmall)) {
+      width: pxToRem(30);
+    }
+  }
+
+  &__text {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+
+    @media (max-width: em($mobileSmall)) {
+      font-size: 14px;
+    }
+  }
 }
