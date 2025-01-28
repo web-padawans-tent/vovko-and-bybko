@@ -1,12 +1,21 @@
+@use '../../utils/variables' as *;
+@use '../../utils/functions' as *;
+@use '../../utils/mixins' as *;
+
 .portfolio {
-  padding-top: 80px;
+  @include adaptiveValue('padding-top', 80, 40);
 
   &__content {
     display: grid;
-    grid-template-columns: 320px minmax(auto, 720px);
+    grid-template-columns: auto minmax(auto, 720px);
     justify-content: space-between;
     gap: 30px;
-    margin-bottom: 120px;
+    @include adaptiveValue('margin-bottom', 120, 40);
+
+    @media (max-width: em($mobile)) {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
   }
 
   &__main {
@@ -17,9 +26,20 @@
     padding: 30px;
     background-color: #19161C;
     border-radius: 20px;
+
+    @media (max-width: em($tablet)) {
+      padding: 20px;
+      gap: 10px;
+    }
+
+    @media (max-width: em($mobile)) {
+      padding: 10px;
+    }
   }
 
   &__img {
+    border-radius: 10px;
+
     &--1 {
       grid-column: span 3;
     }
