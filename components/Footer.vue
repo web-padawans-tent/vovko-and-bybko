@@ -71,7 +71,7 @@ export default {
         </div>
         <div class="footer__col">
           <Heading level="h6" customClasses="mb-2">ОСТАЛИСЬ ВОПРОСЫ?</Heading>
-          <Button @click="openModal" color="purple">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <Button @click="openModal" color="purple" class="z-btn_style_default z-btn_md">ОСТАВИТЬ ЗАЯВКУ</Button>
         </div>
       </div>
       <p class="text-center">{{ texts[0].textLove }}</p>

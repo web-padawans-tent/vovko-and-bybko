@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     colorClass() {
-      return `btn--${this.color}`;
+      return `z-btn_color_${this.color}`;
     },
   },
   methods: {
@@ -31,7 +31,7 @@ export default {
 
 <template>
   <button
-      :class="['btn', colorClass, customClass, { 'btn--full': fullWidth }]"
+      :class="['z-btn', colorClass, customClass, { 'btn--full': fullWidth }]"
       @click="onClick"
   >
     <slot></slot>

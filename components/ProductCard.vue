@@ -1,10 +1,8 @@
 <script lang="ts">
-import Heading from "~/components/Heading";
 
 export default {
   name: 'ProductCard',
   components: {
-    Heading,
   },
   props: {
     title: {
