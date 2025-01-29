@@ -45,22 +45,15 @@
     }
   }
 
-  &__decor {
-    position: absolute;
-    top: 50%;
-    left: -220px;
-    transform: translate(0, -50%);
-    max-width: 1000px;
-    z-index: -1;
-  }
-
   &__action {
-    position: relative;
     padding: 50px 80px;
-  }
 
-  &__form {
-    max-width: 650px;
-    margin-left: auto;
+    @media (max-width: em($mobile)) {
+      padding: 50px 40px;
+    }
+
+    @media (max-width: em($mobileSmall)) {
+      padding: 50px 0;
+    }
   }
 }

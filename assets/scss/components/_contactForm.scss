@@ -1,0 +1,16 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+.contact-form {
+  position: relative;
+
+  &__decor {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    max-width: 1000px;
+    z-index: -1;
+    @include adaptiveValue('left', -220, -560);
+  }
+}

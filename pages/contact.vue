@@ -1,7 +1,7 @@
 <script setup>
   import Header from "~/components/Header.vue";
   import Heading from "~/components/Heading.vue";
-  import Form from "~/components/Form.vue";
+  import ContactForm from "~/components/ContactForm.vue";
 </script>
 
 <template>
@@ -11,11 +11,11 @@
       <Heading level="h1" customClasses="contact__title">КОНТАКТЫ</Heading>
       <ul class="contact__list">
         <li class="contact__list-item">
-          <Heading level="h5" customClasses="contact__list-title">Телефон</Heading>
+          <Heading level="h6" customClasses="contact__list-title">Телефон</Heading>
           <p>(000)-000-00-00</p>
         </li>
         <li class="contact__list-item">
-          <Heading level="h5" customClasses="contact__list-title">График работы</Heading>
+          <Heading level="h6" customClasses="contact__list-title">График работы</Heading>
           <ul class="flex flex-col gap-1">
             <li>
               <p>пн-пт: <b>9:00 - 20:00</b></p>
@@ -26,20 +26,11 @@
           </ul>
         </li>
         <li class="contact__list-item">
-          <Heading level="h5" customClasses="contact__list-title">Почта</Heading>
+          <Heading level="h6" customClasses="contact__list-title">Почта</Heading>
           <a href="mailto:vovko.and.bybko@gmail.com">vovko.and.bybko@gmail.com</a>
         </li>
       </ul>
-      <div class="contact__main">
-        <video muted playsinline autoplay loop class="contact__decor">
-          <source src="/public/videos/contact-anim.mp4" type="video/mp4"></source>
-        </video>
-        <Form
-            title="ГОТОВЫ ЗАКАЗАТЬ УСЛУГИ?"
-            text="Заполните форму и с вами сконтактирует наш специалист"
-            customClasses="contact__form"
-        />
-      </div>
+      <ContactForm customClass="contact__form"/>
     </div>
   </section>
 </template>

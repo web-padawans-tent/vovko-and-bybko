@@ -11,7 +11,7 @@
     padding: 18px 14px;
     border-radius: 8px;
     border: 1px solid #434343;
-    background: transparent;
+    background-color: $mainColor;
 
     @media (max-width: em($mobile)) {
       padding: 14px 10px;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import Header from "~/components/Header.vue";
   import Heading from "~/components/Heading.vue";
-  import Form from "~/components/Form.vue";
+  import ContactForm from "~/components/ContactForm.vue";
 </script>
 
 <template>
@@ -23,16 +23,7 @@
         <img class="portfolio__img" src="/public/images/portfolio-3.jpg" alt="">
         <img class="portfolio__img" src="/public/images/portfolio-4.jpg" alt="">
       </div>
-      <div class="portfolio__action">
-        <video muted playsinline autoplay loop class="portfolio__decor">
-          <source src="/public/videos/contact-anim.mp4" type="video/mp4"></source>
-        </video>
-        <Form
-            title="ГОТОВЫ ЗАКАЗАТЬ УСЛУГИ?"
-            text="Заполните форму и с вами сконтактирует наш специалист"
-            customClasses="portfolio__form"
-        />
-      </div>
+      <ContactForm customClass="portfolio__action" />
     </div>
   </section>
 </template>
