@@ -1,7 +1,19 @@
+@use '../../utils/variables' as *;
+@use '../../utils/functions' as *;
+@use '../../utils/mixins' as *;
+
 .faq {
   &__content {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 100px;
+    @media (min-width: em($tablet)) {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 100px;
+    }
+  }
+
+  &__decor {
+    @media (max-width: em($tablet)) {
+      display: none;
+    }
   }
 }

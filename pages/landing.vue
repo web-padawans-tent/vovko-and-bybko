@@ -98,7 +98,7 @@ export default {
     <div class="container-main">
       <div class="steps__head">
         <Heading level="h2">ЭТАПЫ РАЗРАБОТКИ ВАШЕГО САЙТА</Heading>
-        <div class="text">
+        <div class="steps__head-text text">
           <p>Качественное выполнение каждого из перечисленных этапов — это гарантия успеха всего Вашего проекта</p>
         </div>
       </div>
@@ -178,11 +178,11 @@ export default {
       </div>
     </div>
   </section>
-  <section class="section-mb">
+  <section class="action section-mb">
     <div class="container-main">
-      <div class="grid grid-cols-[repeat(2,1fr)] gap-14">
+      <div class="action__main">
         <div>
-          <Heading level="h2" customClasses="max-w-[800px] mb-8">ПЕРЕХОДИМ К <span>ДЕЙСТВИЯМ</span></Heading>
+          <Heading level="h2" customClasses="action__title">ПЕРЕХОДИМ К <span>ДЕЙСТВИЯМ</span></Heading>
           <div class="text">
             <p>Чтобы создать продукт, который будет «бить в десятку», давайте познакомимся немного поближе!</p>
             <p>Короткая бриф-анкета позволит нам лучше узнать специфику Вашего бизнеса, и сформировать качественное предложение. На заполнение уйдет меньше 5 минут!</p>

@@ -1,3 +1,7 @@
+@use '../../utils/variables' as *;
+@use '../../utils/functions' as *;
+@use '../../utils/mixins' as *;
+
 .contact {
   padding: 25px 0 0;
 
@@ -7,31 +11,33 @@
 
   &__list {
     display: flex;
-    gap: 140px;
+    gap: 20px 140px;
+    flex-wrap: wrap;
     padding-bottom: 20px;
     border-bottom: 1px solid rgba(#fff, 0.3);
+
+    @media (max-width: em($tablet)) {
+      gap: 20px 60px;
+    }
+
+    @media (max-width: em($mobile)) {
+      flex-direction: column;
+    }
   }
 
   &__list-title {
     margin-bottom: 5px;
   }
 
-  &__main {
-    position: relative;
-    padding: 100px 80px 140px;
-  }
-
-  &__decor {
-    position: absolute;
-    top: 50%;
-    left: -220px;
-    transform: translate(0, -50%);
-    max-width: 1000px;
-    z-index: -1;
-  }
-
   &__form {
-    max-width: 650px;
-    margin-left: auto;
+    padding: 100px 80px 140px;
+
+    @media (max-width: em($mobile)) {
+      padding: 60px 40px 100px;
+    }
+
+    @media (max-width: em($mobileSmall)) {
+      padding: 60px 0 100px;
+    }
   }
 }

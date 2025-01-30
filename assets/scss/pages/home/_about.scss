@@ -1,12 +1,60 @@
+@use '../../utils/variables' as *;
+@use '../../utils/functions' as *;
+@use '../../utils/mixins' as *;
+
 .about {
   &__main {
     display: grid;
     grid-template-columns: 1fr 540px;
     gap: 60px;
+
+    @media (max-width: em($tablet)) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: em($mobileSmall)) {
+      gap: 30px;
+    }
   }
 
   &__form {
-    padding-left: 60px;
-    border-left: 1px solid rgba(#fff, 0.3);
+    @media (min-width: em($tablet)) {
+      padding-left: 60px;
+      border-left: 1px solid rgba(#fff, 0.3);
+    }
+
+    @media (max-width: em($tablet)) {
+      max-width: pxToRem(520);
+    }
+
+    @media (max-width: em($mobileSmall)) {
+      padding-top: 20px;
+      border-top: 1px solid rgba(#fff, 0.3);
+    }
+  }
+
+  &__title {
+    margin-bottom: 15px;
+
+    @media (max-width: em($mobileSmall)) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__form-title {
+    margin-bottom: 8px;
+  }
+
+  &__form-input {
+    margin-bottom: 15px;
+  }
+
+  &__form-text {
+    margin-bottom: 15px;
+
+    @media (max-width: em($mobileSmall)) {
+      margin-bottom: 10px;
+    }
   }
 }

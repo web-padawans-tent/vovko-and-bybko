@@ -1,13 +1,15 @@
 @use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
 
-#app {
-  font-family: Julius Sans One, sans-serif;
-}
+#app {}
 
 body {
-  background-color: #000;
-  color: $text-color;
-  font-size: 18px;
+  background-color: $mainColor;
+  color: $textColor;
+  font-family: $fontFamily, sans-serif;
+  font-size: $fontSize;
   font-weight: 400;
   line-height: 1.2;
+  @include adaptiveValue('font-size', $fontSize, 16);
 }

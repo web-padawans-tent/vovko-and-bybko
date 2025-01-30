@@ -1,5 +1,7 @@
+@use '../utils/mixins' as *;
+
 .title {
-  line-height: 1.5;
+  line-height: 1.3;
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
@@ -9,26 +11,27 @@
   }
 
   &--h1 {
-    font-size: 48px;
+    @include adaptiveValue('font-size', 48, 32);
   }
 
   &--h2 {
     font-size: 36px;
+    @include adaptiveValue('font-size', 36, 28);
   }
 
   &--h3 {
-    font-size: 28px;
+    @include adaptiveValue('font-size', 28, 24);
   }
 
   &--h4 {
-    font-size: 24px;
+    @include adaptiveValue('font-size', 24, 20);
   }
 
   &--h5 {
-    font-size: 20px;
+    @include adaptiveValue('font-size', 20, 18);
   }
 
   &--h6 {
-    font-size: 18px;
+    @include adaptiveValue('font-size', 18, 16);
   }
 }

@@ -1,3 +1,7 @@
+@use '../../utils/variables' as *;
+@use '../../utils/functions' as *;
+@use '../../utils/mixins' as *;
+
 .promo {
   display: flex;
   flex-direction: column;
@@ -12,6 +16,18 @@
     height: 100%;
   }
 
+  &__title {
+    margin-bottom: 5px;
+
+    @media (max-width: em($mobile)) {
+      max-width: pxToRem(520);
+    }
+  }
+
+  &__text {
+    margin-bottom: 15px;
+  }
+
   &__container {
     position: relative;
     display: flex;
@@ -21,15 +37,32 @@
     flex: 1;
     margin: 0 auto;
     padding: 140px 15px;
+
+    @media (max-width: em($tablet)) {
+      padding: 80px 15px;
+    }
+
+    @media (max-width: em($mobile)) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 15px;
+    }
   }
 
   &__decor {
-    position: absolute;
-    top: 50%;
-    right: -320px;
-    transform: translate(0, -50%);
-    z-index: -1;
-    max-width: 1200px;
+    @media (min-width: em($mobile)) {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      z-index: -1;
+      @include adaptiveValue('width', 1200, 460);
+      @include adaptiveValue('right', -320, -80);
+    }
+
+    @media (max-width: em($mobile)) {
+      top: 40%;
+    }
   }
 
   &__img {
@@ -40,5 +73,10 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @media (max-width: em($mobileSmall)) {
+      flex-direction: column;
+      gap: 10px;
+    }
   }
 }

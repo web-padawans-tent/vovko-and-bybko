@@ -3,6 +3,8 @@
 
 // Utils
 @use 'utils/mixins';
+@use 'utils/functions';
+@use 'utils/variables';
 
 // Base styles
 @use 'base/typography';
@@ -26,3 +28,4 @@
 @use 'components/priceCard';
 @use 'components/productCard';
 @use 'components/accordion';
+@use 'components/contactForm';

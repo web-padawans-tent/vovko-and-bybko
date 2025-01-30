@@ -1,9 +1,13 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
 .accordion {
-  padding: 20px;
   border-radius: 7px;
   border: 1px solid #fff;
   background: rgb(0, 0, 0);
   transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  @include adaptiveValue('padding', 20, 10);
 
   &--active {
     box-shadow: 0px 0px 28px 5px rgba(153, 69, 255, 0.5);
@@ -11,7 +15,10 @@
   }
 
   &__trigger {
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
     width: 100%;
     text-align: left;
     outline: none;
@@ -19,16 +26,14 @@
 
     &-text {
       color: #fff;
-      font-size: 20px;
       font-weight: 600;
       line-height: 1.2;
+      @include adaptiveValue('font-size', 20, 16);
     }
 
     &-icon {
-      position: absolute;
-      top: 5px;
-      right: 0;
-      width: 18px;
+      position: relative;
+      min-width: 18px;
       height: 18px;
 
       &::before,
