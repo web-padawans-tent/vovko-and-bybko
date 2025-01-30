@@ -44,7 +44,7 @@ export default defineComponent({
       <!-- Логотип -->
       <div class="logo flex gap-3 items-center">
         <router-link to="/">
-          <img class="logo__img max-w-10" src="/public/images/Logo.png" alt="logo"/>
+          <img class="logo__img max-w-10" src="/assets/images/Logo.png" alt="logo"/>
         </router-link>
 
         <router-link to="/">

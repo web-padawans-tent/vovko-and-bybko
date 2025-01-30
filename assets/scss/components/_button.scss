@@ -1,14 +1,20 @@
 .z-btn {
-  display: block;
+  display: inline-block;
   max-width: max-content;
   transition: background-color 0.3s ease, color 0.3s ease;
   border: 1px solid transparent;
+  white-space: nowrap;
+  text-transform: uppercase;
+
+  &_full {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 
 .z-btn_style_default {
   border-radius: 20px;
-  text-transform: uppercase;
 
   &.z-btn_color {
     &_green {

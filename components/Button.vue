@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 export default {
   name: "Button",
   props: {
@@ -31,7 +31,7 @@ export default {
 
 <template>
   <button
-      :class="['z-btn', colorClass, customClass, { 'btn--full': fullWidth }]"
+      :class="['z-btn', colorClass, customClass, { 'z-btn_full': fullWidth }]"
       @click="onClick"
   >
     <slot></slot>

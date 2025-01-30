@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import Heading from '~/components/Heading'
 
 export default {

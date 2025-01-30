@@ -46,7 +46,7 @@ export default {
       <div class="footer__main">
         <div class="footer__col">
           <div class="logo flex gap-3 items-center mb-2">
-            <img class="max-w-10" src="/public/images/Logo.png" alt="logo"/>
+            <img class="max-w-10" src="/assets/images/Logo.png" alt="logo"/>
             <span class="header__title text-white text-xl">
               {{ texts[0].textLogo }}
             </span>
