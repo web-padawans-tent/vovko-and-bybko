@@ -13,6 +13,7 @@
 // Layout styles
 @use 'layout/header';
 @use 'layout/footer';
+@use 'layout/body';
 
 // Pages styles
 @use 'pages/home/home';
@@ -28,4 +29,5 @@
 @use 'components/priceCard';
 @use 'components/productCard';
 @use 'components/accordion';
+@use 'components/modal';
 @use 'components/contactForm';

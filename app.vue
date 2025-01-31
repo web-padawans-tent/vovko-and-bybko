@@ -8,7 +8,6 @@
   </div>
   <div class="wrapper">
     <Header/>
-    <StarrySky/>
     <div class="hidden">
       <SvgSprite />
     </div>
@@ -23,5 +22,4 @@
 <script setup lang="ts">
   import SvgSprite from "~/components/SvgSprite.vue";
   import Footer from "~/components/Footer.vue";
-  import StarrySky from "~/components/StarrySky.vue";
 </script>

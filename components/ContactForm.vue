@@ -16,7 +16,7 @@
 <template>
   <div :class="['contact-form', customClass]">
     <video muted playsinline autoplay loop class="contact-form__decor">
-      <source src="/public/videos/contact-anim.mp4" type="video/mp4"></source>
+      <source src="/assets/videos/contact-anim.mp4" type="video/mp4">
     </video>
     <Form
         title="ГОТОВЫ ЗАКАЗАТЬ УСЛУГИ?"

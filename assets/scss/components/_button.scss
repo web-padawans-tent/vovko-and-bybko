@@ -14,7 +14,6 @@
 
 
 .z-btn_style_default {
-  border-radius: 20px;
 
   &.z-btn_color {
     &_green {
@@ -54,8 +53,17 @@
   }
 
   &.z-btn_md {
+    border-radius: 20px;
     padding: 10px 38px;
     font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  &.z-btn_sm {
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.2;
   }

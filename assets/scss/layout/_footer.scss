@@ -25,7 +25,7 @@
       gap: pxToRem(30);
     }
 
-    @media (max-width: em($mobile)) {
+    @media (max-width: em($tablet)) {
       grid-template-columns: 1fr;
       justify-content: center;
       text-align: center;
@@ -39,6 +39,38 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: pxToRem(5);
+    gap: pxToRem(12);
+
+    &-item {
+      transition: color .3s;
+      color: #FFFFFF;
+      justify-content: center;
+
+      &_email:hover,
+      &_email:focus {
+        color: #C5221F;
+      }
+
+      &_tg:hover,
+      &_tg:focus {
+        color: #24A1DE;
+      }
+
+      &_wa:hover,
+      &_wa:focus {
+        color: #25D366;
+      }
+    }
+  }
+}
+
+
+@media (min-width: em($mobile)) {
+  .footer {
+    &__list {
+      &-item {
+        justify-content: flex-start;
+      }
+    }
   }
 }

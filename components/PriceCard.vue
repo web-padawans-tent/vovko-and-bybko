@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import Heading from '~/components/Heading'
 
 export default {
@@ -45,6 +45,6 @@ export default {
     <p class="price">{{ price }}</p>
     <div class="deadlines">Сроки: {{ deadlines }}</div>
     <p>{{ description }}</p>
-    <Button :color="buttonColor" :fullWidth="buttonFullWidth" customClass="price-card__btn">{{ buttonText }}</Button>
+    <Button :color="buttonColor" :fullWidth="buttonFullWidth" customClass="z-btn_style_default z-btn_sm price-card__btn">{{ buttonText }}</Button>
   </div>
 </template>

@@ -22,9 +22,13 @@ export default {
         { text: "О нас", link: "/about/" },
         { text: "Контакты", link: "/contacts/" },
       ],
+      socials: [
+        { text: "Telegram", link: "href=\"https://t.me/zbybko\" target=\"_blank\"", svg: "telegram", extraClass: "footer__list-item_tg" },
+        { text: "Email", link: "mailto:vovko.and.bybko@gmail.com", svg: "email", extraClass: "footer__list-item_email" },
+        { text: "WhatsApp", link: "#", svg: "whatsapp", extraClass: "footer__list-item_wa" },
+      ],
       texts: [
         {
-          textUnder: "Мы любим то что делаем, поэтому каждый проект для нас лучший!",
           textLogo: "Vovko & Bybko Studio",
           textLove: "© 2024 Vovko & Bybko Studio сделано с ❤️",
         },
@@ -47,17 +51,16 @@ export default {
         <div class="footer__col">
           <div class="logo flex gap-3 items-center mb-2">
             <img class="max-w-10" src="/assets/images/Logo.png" alt="logo"/>
-            <span class="header__title text-white text-xl">
+            <span class="logo__text text-white text-xl">
               {{ texts[0].textLogo }}
             </span>
           </div>
-          <p>{{ texts[0].textUnder }}</p>
         </div>
         <div class="footer__col">
           <Heading level="h6" customClasses="mb-2">УСЛУГИ</Heading>
           <ul class="footer__list">
             <li class="footer__list-item" v-for="(item, i) in menuServices" :key="i">
-              <a :href="item.link" class="footer__list-link">{{ item.text }}</a>
+              <a :href="item.link">{{ item.text }}</a>
             </li>
           </ul>
         </div>
@@ -65,13 +68,20 @@ export default {
           <Heading level="h6" customClasses="mb-2">О КОМПАНИИ</Heading>
           <ul class="footer__list">
             <li class="footer__list-item" v-for="(item, i) in about" :key="i">
-              <a :href="item.link" class="footer__list-link">{{ item.text }}</a>
+              <a :href="item.link">{{ item.text }}</a>
             </li>
           </ul>
         </div>
         <div class="footer__col">
-          <Heading level="h6" customClasses="mb-2">ОСТАЛИСЬ ВОПРОСЫ?</Heading>
-          <Button @click="openModal" color="purple" class="z-btn_style_default z-btn_md">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <Heading level="h6" customClasses="mb-2">МЫ ВСЕГДА НА СВЯЗИ</Heading>
+          <ul class="footer__list">
+            <li :class="['footer__list-item', 'flex', 'gap-2', 'items-center', item.extraClass]" v-for="(item, i) in socials" :key="i">
+              <svg v-if="item.svg" class="w-5 h-5 svg-ico svg-ico_no-stroke">
+                <use :xlink:href="`#${item.svg}`"></use>
+              </svg>
+              <a :href="item.link">{{ item.text }}</a>
+            </li>
+          </ul>
         </div>
       </div>
       <p class="text-center">{{ texts[0].textLove }}</p>
