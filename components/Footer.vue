@@ -55,6 +55,11 @@ export default {
               {{ texts[0].textLogo }}
             </span>
           </div>
+          <div class="text max-w-[360px] m-auto">
+            <p>
+              Мы любим то что делаем, поэтому каждый проект для нас лучший!
+            </p>
+          </div>
         </div>
         <div class="footer__col">
           <Heading level="h6" customClasses="mb-2">УСЛУГИ</Heading>

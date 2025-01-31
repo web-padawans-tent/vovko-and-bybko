@@ -25,13 +25,10 @@
       gap: pxToRem(30);
     }
 
-    @media (max-width: em($tablet)) {
+    @media (max-width: em($mobile)) {
       grid-template-columns: 1fr;
       justify-content: center;
       text-align: center;
-    }
-
-    @media (max-width: em($mobile)) {
       gap: pxToRem(20);
     }
   }
