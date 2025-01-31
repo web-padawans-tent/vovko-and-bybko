@@ -36,24 +36,14 @@ export default {
   <section class="about section-mb">
     <div class="about__container container-main">
       <div class="about__main">
-        <div>
+        <div class="about__content">
           <Heading level="h2" customClasses="mb-5">ЗАЧЕМ ОН ВАМ НУЖЕН?</Heading>
           <div class="text">
             <p>Landing Page может успешно использоваться абсолютно во всех сферах бизнеса. Наиболее очевидную выгоду получают сегменты e-commerce и инфобизнеса. В то же время, он может эффективно повышать авторитет компании, которая совершенно не занимается продажами.</p>
             <p>Landing Page может успешно использоваться абсолютно во всех сферах бизнеса. Наиболее очевидную выгоду получают сегменты e-commerce и инфобизнеса. В то же время, он может эффективно повышать авторитет компании, которая совершенно не занимается продажами.</p>
           </div>
         </div>
-        <form action="/" class="about__form">
-          <Heading level="h4" customClasses="mb-3">Закажите <span>бесплатную</span> консультацию</Heading>
-          <p class="mb-4">Мы подберем вам оптимальное решение.</p>
-          <FormField
-              id="email"
-              type="text"
-              placeholder="Email"
-              customClass="mb-5"
-          />
-          <Button color="purple" :fullWidth="true" class="z-btn_style_default z-btn_md">ОСТАВИТЬ ЗАЯВКУ</Button>
-        </form>
+        <ConsultationForm/>
       </div>
     </div>
   </section>

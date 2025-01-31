@@ -2,6 +2,10 @@
 export default {
   name: "Button",
   props: {
+    type: {
+      type: String,
+      default: 'button',
+    },
     color: {
       type: String,
       default: "transparent",
@@ -31,6 +35,7 @@ export default {
 
 <template>
   <button
+      :type="type"
       :class="['z-btn', colorClass, customClass, { 'z-btn_full': fullWidth }]"
       @click="onClick"
   >

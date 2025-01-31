@@ -37,7 +37,7 @@ export default {
   <section class="about section-mb">
     <div class="about__container container-main">
       <div class="about__main">
-        <div>
+        <div class="about__content">
           <Heading level="h2" customClasses="about__title">ЧЕМ МЫ ЗАНИМАЕМСЯ?</Heading>
           <div class="text">
             <p>Находить «изюминку» в каждом проекте, вокруг которой строится весь будущий сайт.</p>
@@ -46,17 +46,7 @@ export default {
             <p>Находить «изюминку» в каждом проекте, вокруг которой строится весь будущий сайт.</p>
           </div>
         </div>
-        <form action="/" class="about__form">
-          <Heading level="h4" customClasses="about__form-title">Закажите <span>бесплатную</span> консультацию</Heading>
-          <p class="about__form-text">Мы подберем вам оптимальное решение.</p>
-          <FormField
-              id="email"
-              type="text"
-              placeholder="Email"
-              customClass="about__form-input"
-          />
-          <Button color="purple" :fullWidth="true" @click="openModal" class="z-btn_style_default z-btn_md">ОСТАВИТЬ ЗАЯВКУ</Button>
-        </Form>
+        <ConsultationForm/>
       </div>
     </div>
   </section>

@@ -5,56 +5,36 @@
 .about {
   &__main {
     display: grid;
-    grid-template-columns: 1fr 540px;
-    gap: 60px;
+    grid-template-columns: auto minmax(auto, pxToRem(540));
+    gap: pxToRem(60);
 
     @media (max-width: em($tablet)) {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: pxToRem(40);
     }
 
     @media (max-width: em($mobileSmall)) {
-      gap: 30px;
+      gap: pxToRem(30);
     }
   }
 
-  &__form {
+  &__content {
     @media (min-width: em($tablet)) {
-      padding-left: 60px;
-      border-left: 1px solid rgba(#fff, 0.3);
-    }
-
-    @media (max-width: em($tablet)) {
-      max-width: pxToRem(520);
+      padding-right: pxToRem(60);
+      border-right: 1px solid rgba(#fff, 0.3);
     }
 
     @media (max-width: em($mobileSmall)) {
-      padding-top: 20px;
-      border-top: 1px solid rgba(#fff, 0.3);
+      padding-bottom: pxToRem(20);
+      border-bottom: 1px solid rgba(#fff, 0.3);
     }
   }
 
   &__title {
-    margin-bottom: 15px;
+    margin-bottom: pxToRem(15);
 
     @media (max-width: em($mobileSmall)) {
-      margin-bottom: 8px;
-    }
-  }
-
-  &__form-title {
-    margin-bottom: 8px;
-  }
-
-  &__form-input {
-    margin-bottom: 15px;
-  }
-
-  &__form-text {
-    margin-bottom: 15px;
-
-    @media (max-width: em($mobileSmall)) {
-      margin-bottom: 10px;
+      margin-bottom: pxToRem(8);
     }
   }
 }
