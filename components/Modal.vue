@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import Form from "~/components/Form.vue";
 import { useModalStore } from '~/stores/modalStore';
 
@@ -15,6 +15,7 @@ export default {
   methods: {
     closeModal() {
       this.modalStore.closeModal();
+      document.body.style.overflow = '';
     },
     onModalClick(e) {
       e.stopPropagation();
@@ -26,26 +27,38 @@ export default {
     }
   },
   mounted() {
+    if (this.modalStore.isModalVisible) {
+      document.body.style.overflow = 'hidden';
+    }
+
     window.addEventListener('keydown', this.onKeydown);
   },
   beforeUnmount() {
+    if (this.modalStore.isModalVisible) {
+      document.body.style.overflow = 'hidden';
+    }
+
     window.removeEventListener('keydown', this.onKeydown);
+  },
+  watch: {
+    'modalStore.isModalVisible'(newVal) {
+      document.body.style.overflow = newVal ? 'hidden' : '';
+    }
   }
 };
 </script>
 
 <template>
-  <div v-if="modalStore.isModalVisible" class="container--modal" @click="closeModal">
-    <div class="modal" @click="onModalClick">
-      <div class="modal__close">
-        <button class="modal__close--btn" @click="closeModal">
-          <svg class="modal__close--icon">
-            <use href="#close"></use>
-          </svg>
-        </button>
-      </div>
+  <div v-if="modalStore.isModalVisible" class="modal" @click="closeModal">
+    <div class="modal__main" @click="onModalClick">
+      <button class="modal__close-btn" @click="closeModal">
+        <svg class="modal__close-icon">
+          <use href="#close"></use>
+        </svg>
+      </button>
       <div class="modal__content">
-        <Form class="flex flex-col" title="ОСТАВЬТЕ ЗАЯВКУ"/>
+        <Heading level="h3" customClasses="mb-3">ОСТАВЬТЕ ЗАЯВКУ</Heading>
+        <Form customClasses="modal__form" />
       </div>
     </div>
   </div>
