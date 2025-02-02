@@ -3,7 +3,7 @@
 @use '../../utils/mixins' as *;
 
 .portfolio {
-  @include adaptiveValue('padding-top', 80, 40);
+  @include adaptiveValue('padding-top', 120, 80);
 
   &__content {
     display: grid;

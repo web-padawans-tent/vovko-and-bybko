@@ -2,6 +2,12 @@
 @use '../utils/functions' as *;
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
   &__container {
     margin: 0 auto;
   }
@@ -19,7 +25,7 @@
     }
   }
 
-  &__menu-mobile {
+  &__menu-btn {
     @media (min-width: em($tablet)) {
       display: none;
     }

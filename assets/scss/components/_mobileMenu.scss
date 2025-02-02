@@ -1,0 +1,75 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: pxToRem(120) pxToRem(15) pxToRem(60);
+  background-color: #19161C;
+  overflow-y: scroll;
+  opacity: 0;
+  z-index: -1;
+  transition: z-index .3s ease-in-out, opacity .3s linear;
+
+  &--open {
+    opacity: 1;
+    z-index: 101;
+  }
+
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    width: 30px;
+    height: 30px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) rotate(-45deg);
+      width: 2px;
+      height: 100%;
+      background-color: #fff;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 2px;
+      height: 100%;
+      background-color: #fff;
+    }
+  }
+
+  &__logo {
+    justify-content: center;
+    margin-bottom: pxToRem(20);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: pxToRem(8);
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: pxToRem(10);
+  }
+
+  &__item-link {
+    padding: pxToRem(4);
+    @include adaptiveValue('font-size', 32, 26);  
+  }
+}
