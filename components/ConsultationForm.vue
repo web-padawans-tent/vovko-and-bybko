@@ -1,6 +1,7 @@
 <script>
 import { useForm, useField } from 'vee-validate';
 import FormField from "~/components/formFields/FormField.vue";
+import PhoneInput from './formFields/PhoneInput.vue';
 import Button from "~/components/Button.vue";
 import Heading from "~/components/Heading.vue";
 
@@ -9,14 +10,14 @@ export default {
   components: {
     Heading,
     Button,
-    FormField
+    FormField,
+    PhoneInput
   },
   setup() {
     const { handleSubmit, resetForm } = useForm();
 
     const { value: phone, errorMessage: phoneError } = useField('phone', (val) => {
       if (!val) return 'Введите номер телефона';
-      if (!/^\+?(380|7)\d{9}$/.test(val)) return 'Некорректный формат телефона';
       return true;
     });
 
@@ -35,16 +36,14 @@ export default {
 </script>
 
 <template>
-  <form action="/" class="consultation-form" @submit.prevent="onSubmit">
+  <form action="/" class="consultation-form" title="" @submit.prevent="onSubmit">
     <Heading level="h4" customClasses="consultation-form__title">
       Закажите <span>бесплатную</span> консультацию
     </Heading>
     <p class="consultation-form__text">Мы подберем вам оптимальное решение.</p>
-    <FormField
+    <PhoneInput
       id="phone"
-      type="tel"
       v-model="phone"
-      placeholder="Введите номер телефона"
       customClass="consultation-form__input"
       :error="phoneError"
     />

@@ -2,6 +2,7 @@
 import { useForm, useField } from 'vee-validate';
 import FormField from "~/components/formFields/FormField.vue";
 import TextareaField from '~/components/formFields/TextareaField.vue';
+import Checkbox from '~/components/formFields/Checkbox.vue';
 import Button from "~/components/Button.vue";
 import Heading from "~/components/Heading.vue";
 
@@ -11,7 +12,8 @@ export default {
     Heading,
     Button,
     FormField,
-    TextareaField
+    TextareaField,
+    Checkbox
   },
   props: {
     title: {
@@ -54,6 +56,11 @@ export default {
       return true;
     });
 
+    const { value: aggree, errorMessage: aggreeError } = useField('aggree', (val) => {
+      if (!val) return 'Вы должны согласиться с условиями';
+      return true;
+    });
+
     const onSubmit = handleSubmit(values => {
       console.log('Форма отправлена:', values);
 
@@ -69,6 +76,8 @@ export default {
       socialError,
       message,
       messageError,
+      aggree,
+      aggreeError,
       onSubmit
     };
   }
@@ -83,7 +92,16 @@ export default {
     <FormField id="name" v-model="name" placeholder="Имя" customClass="mb-2" :error="nameError" />
     <FormField id="email" type="email" v-model="email" placeholder="Email" customClass="mb-2" :error="emailError" />
     <FormField id="social" v-model="social" placeholder="Ваш Telegram" customClass="mb-2" :error="socialError" />
-    <TextareaField id="message" :modelValue="message" placeholder="Описание Заказа" customClass="mb-2" :errorMessage="messageError" />
+    <TextareaField id="message" v-model="message" placeholder="Описание Заказа" customClass="mb-2" :errorMessage="messageError" />
+    <Checkbox
+      v-model="aggree"
+      type="square"
+      name="aggree"
+      id="aggree"
+      :isError="!!aggreeError" 
+    >
+      Согласие на обработку персональных данных
+    </Checkbox>
     <Button type="submit" color="green" customClass="z-btn_style_default z-btn_md m-auto mt-1">ОТПРАВИТЬ</Button>
   </form>
 </template>

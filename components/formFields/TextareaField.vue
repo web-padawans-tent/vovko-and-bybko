@@ -7,7 +7,7 @@
         :disabled="disabled"
         :class="['form-field__textarea', customClass]"
         ref="textareaRef"
-        @input="adjustHeight"
+        @input="handleInput"
     />
     <p v-if="errorMessage" class="form-field__error">{{ errorMessage }}</p>
   </div>
@@ -33,6 +33,11 @@
       textareaRef.value.style.height = 'auto';
       textareaRef.value.style.height = `${textareaRef.value.scrollHeight}px`;
     }
+  };
+
+  const handleInput = (event) => {
+    emit('update:modelValue', event.target.value);
+    adjustHeight();
   };
 
   watch(() => props.modelValue, adjustHeight);

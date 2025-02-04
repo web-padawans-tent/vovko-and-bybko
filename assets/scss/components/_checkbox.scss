@@ -1,0 +1,61 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__box {
+    position: relative;
+    display: inline-block;
+  }
+  
+  &__input {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  &__checkmark {
+    width: pxToRem(20);
+    height: pxToRem(20);
+    border: pxToRem(2) solid #434343;
+    border-radius: pxToRem(4);
+    display: inline-block;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+  
+  &__input:checked + .checkbox__checkmark {
+    background-color: #9945FF;
+    border-color: #9945FF;
+  }
+  
+  &__label {
+    margin-left: pxToRem(10);
+    cursor: pointer;
+  }
+  
+  &--circle &__checkmark {
+    border-radius: 50%;
+  }
+  
+  &--checked &__checkmark {
+    background-color: #9945FF;
+  }
+  
+  &--focused &__checkmark {
+    border-color: #9945FF;
+  }
+  
+  &--disabled {
+    cursor: not-allowed;
+  }
+  
+  &--error &__checkmark {
+    border-color: red;
+  }
+}
+  
+  

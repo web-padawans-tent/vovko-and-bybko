@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "nuxt": "^3.14.1592",
+    "v-mask": "^2.3.0",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
     "@nuxt/fonts": "^0.10.2",
