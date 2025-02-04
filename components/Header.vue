@@ -50,18 +50,7 @@
   <header class="header bg-black">
     <div class="header__container container-main">
       <div class="header__main">
-        <!-- Логотип -->
-        <div class="logo flex gap-3 items-center">
-          <router-link to="/">
-            <img class="logo__img max-w-10" src="/assets/images/Logo.png" alt="logo"/>
-          </router-link>
-
-          <router-link to="/">
-            <span class="logo__text text-white text-xl">
-              Vovko & Bybko Studio
-            </span>
-          </router-link>
-        </div>
+        <Logo/>
 
         <!-- Меню навигации -->
         <nav class="header__nav ml-auto">
@@ -88,18 +77,9 @@
     </div>
   </header>
   <!-- Мобильное меню -->
-  <div :class="{'mobile-menu': true, 'mobile-menu--open': isMenuOpen}">
+  <nav :class="{'mobile-menu': true, 'mobile-menu--open': isMenuOpen}">
     <button type="button" @click="closeMenu" class="mobile-menu__close"></button>
-    <div class="mobile-menu__logo logo flex gap-3 items-center">
-      <router-link to="/">
-        <img class="logo__img max-w-10" src="/assets/images/Logo.png" alt="logo"/>
-      </router-link>
-      <router-link to="/">
-        <span class="logo__text text-white text-xl">
-          Vovko & Bybko Studio
-        </span>
-      </router-link>
-    </div>
+    <Logo customClasses="mobile-menu__logo" />
     <ul class="mobile-menu__list">
       <li class="mobile-menu__item" v-for="(item, index) in navItems" :key="index">
         <a :href="item.link" class="mobile-menu__item-link">
@@ -110,6 +90,6 @@
         </svg>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 

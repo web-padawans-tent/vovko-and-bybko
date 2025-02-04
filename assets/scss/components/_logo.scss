@@ -1,0 +1,22 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+
+.logo {
+  &__img {
+    @media (max-width: em($mobileSmall)) {
+      width: pxToRem(30);
+    }
+  }
+
+  &__text {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+
+    @media (max-width: em($mobileSmall)) {
+      font-size: 14px;
+    }
+  }
+}

@@ -49,12 +49,7 @@ export default {
     <div class="container-main">
       <div class="footer__main">
         <div class="footer__col">
-          <div class="logo flex gap-3 items-center mb-2">
-            <img class="max-w-10" src="/assets/images/Logo.png" alt="logo"/>
-            <span class="logo__text text-white text-xl">
-              {{ texts[0].textLogo }}
-            </span>
-          </div>
+          <Logo customClasses="mb-2" />
           <div class="text max-w-[360px] m-auto">
             <p>
               Мы любим то что делаем, поэтому каждый проект для нас лучший!
