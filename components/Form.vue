@@ -1,6 +1,7 @@
 <script>
 import { useForm, useField } from 'vee-validate';
-import FormField from "~/components/FormField.vue";
+import FormField from "~/components/formFields/FormField.vue";
+import TextareaField from '~/components/formFields/TextareaField.vue';
 import Button from "~/components/Button.vue";
 import Heading from "~/components/Heading.vue";
 
@@ -9,7 +10,8 @@ export default {
   components: {
     Heading,
     Button,
-    FormField
+    FormField,
+    TextareaField
   },
   props: {
     title: {
@@ -81,7 +83,7 @@ export default {
     <FormField id="name" v-model="name" placeholder="Имя" customClass="mb-2" :error="nameError" />
     <FormField id="email" type="email" v-model="email" placeholder="Email" customClass="mb-2" :error="emailError" />
     <FormField id="social" v-model="social" placeholder="Ваш Telegram" customClass="mb-2" :error="socialError" />
-    <FormField id="message" type="textarea" v-model="message" placeholder="Описание Заказа" customClass="mb-2" :error="messageError" />
+    <TextareaField id="message" :modelValue="message" placeholder="Описание Заказа" customClass="mb-2" :errorMessage="messageError" />
     <Button type="submit" color="green" customClass="z-btn_style_default z-btn_md m-auto mt-1">ОТПРАВИТЬ</Button>
   </form>
 </template>

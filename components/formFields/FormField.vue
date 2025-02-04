@@ -6,7 +6,7 @@ export default {
     type: {
       type: String,
       default: "text",
-      validator: (value) => ["text", "phone", "email", "textarea"].includes(value)
+      validator: (value) => ["text", "phone", "email"].includes(value)
     },
     modelValue: {
       type: [String, Number],
@@ -14,21 +14,11 @@ export default {
     },
     placeholder: { type: String, default: "" },
     error: { type: String, default: "" },
-    rows: { type: Number, default: 3 },
     maxlength: { type: Number, default: null },
     disabled: { type: Boolean, default: false },
     customClass: { type: String, default: "" }
   },
   computed: {
-    isInput() {
-      return this.type !== "textarea";
-    },
-    isTextarea() {
-      return this.type === "textarea";
-    },
-    inputType() {
-      return this.isInput ? "input" : "textarea";
-    },
     phoneMask() {
       return this.type === "phone" ? "+# (###) ###-##-##" : "";
     }
@@ -38,19 +28,17 @@ export default {
 
 <template>
   <div class="form-field">
-    <component
-      :is="inputType"
+    <input
       :id="id"
-      :type="isInput ? type : null"
+      :type="type"
       :placeholder="placeholder"
       :class="['form-field__input', customClass]"
-      :rows="isTextarea ? rows : null"
       :maxlength="maxlength"
       :disabled="disabled"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       v-mask="phoneMask"
-    ></component>
+    />
     <p v-if="error" class="form-field__error">{{ error }}</p>
   </div>
 </template>

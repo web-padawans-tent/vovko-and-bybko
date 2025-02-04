@@ -76,6 +76,7 @@
       </div>
     </div>
   </header>
+
   <!-- Мобильное меню -->
   <nav :class="{'mobile-menu': true, 'mobile-menu--open': isMenuOpen}">
     <button type="button" @click="closeMenu" class="mobile-menu__close"></button>

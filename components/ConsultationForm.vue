@@ -1,6 +1,6 @@
 <script>
 import { useForm, useField } from 'vee-validate';
-import FormField from "~/components/FormField.vue";
+import FormField from "~/components/formFields/FormField.vue";
 import Button from "~/components/Button.vue";
 import Heading from "~/components/Heading.vue";
 
