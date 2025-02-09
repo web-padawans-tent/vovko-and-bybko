@@ -36,28 +36,21 @@
     width: 100%;
     flex: 1;
     margin: 0 auto;
-    padding: 180px 15px;
+    padding: 0 15px;
+    @include adaptiveValue('padding-bottom', 140, 40);
 
-    @media (max-width: em($tablet)) {
-      padding: 80px 15px;
-    }
 
     @media (max-width: em($mobile)) {
       flex-direction: column;
       justify-content: center;
       gap: 30px;
-      padding: 120px 15px;
-    }
-
-    @media (max-width: em($mobileSmall)) {
-      padding: 80px 15px;
     }
   }
 
   &__decor {
     @media (min-width: em($mobile)) {
       position: absolute;
-      top: 50%;
+      top: 45%;
       transform: translate(0, -50%);
       z-index: -1;
       @include adaptiveValue('width', 1200, 460);

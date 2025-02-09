@@ -15,9 +15,45 @@
   }
 
   &__img {
-    width: 100%;
-    height: 250px;
     object-fit: cover;
     aspect-ratio: 1/1;
+    transition: transform .3s ease;
+
+    &:hover {
+      transform: scale(1.1);;
+    }
+  }
+
+  &__img-wrapper {
+    display: block;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  &__link {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    transition: background-color .3s linear;
+
+    &:hover {
+      background-color: #fff;
+
+      .product-card__link-icon {
+          fill: #000;
+      }
+    }
+  }
+
+  &__link-icon {
+    position: relative;
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+    transition: fill .3s linear;
   }
 }

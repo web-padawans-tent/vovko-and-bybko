@@ -1,0 +1,21 @@
+<script setup>
+  const {data: homeData} = await useFetch("http://localhost:1337/api/home?populate=*");
+  const home = homeData.value?.data;
+
+  const {data: portfolioData} = await useFetch(`http://localhost:1337/api/portfolios?populate=*`);
+  const portfolio = portfolioData.value?.data;
+</script>
+
+<template>
+  <section class="section">
+    <div class="container-main">
+      <Heading level="h2" customClasses="mb-1 text-center">{{ home?.portfolioTitle }}</Heading>
+      <p class="text-center mb-10">{{ home?.portfolioText }}</p>
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-7">
+        <template v-for="(item, index) in portfolio" :key="index">
+          <ProductCard :title="item.projectName" :category="item.siteType" :id="item.documentId" :imageUrl="item.promoImage.url" />
+        </template>
+      </div>
+    </div>
+  </section>
+</template>

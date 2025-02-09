@@ -13,7 +13,11 @@ export default {
       type: String,
       required: true
     },
-    link: {
+    id: {
+      type: String,
+      required: true
+    },
+    imageUrl: {
       type: String,
       required: true
     }
@@ -23,13 +27,21 @@ export default {
 
 <template>
   <div class="product-card">
-    <img src="/assets/images/product.jpeg" :alt="title" class="product-card__img" />
+    <a :href="`/portfolio/${id}`" class="product-card__img-wrapper">
+      <img :src="'http://localhost:1337' + imageUrl"  :alt="title" class="product-card__img" />
+    </a>
     <div class="product-card__content">
       <div>
-        <Heading level="h6">{{ title }}</Heading>
+        <a :href="`/portfolio/${id}`">
+          <Heading level="h6">{{ title }}</Heading>
+        </a>
         <p class="product-card__category">{{ category }}</p>
       </div>
-      <a :href="link" class="product-card__link">Подробнее</a>
+      <a :href="`/portfolio/${id}`" class="product-card__link">
+        <svg class="product-card__link-icon">
+          <use xlink:href="#arrow_down_right"></use>
+        </svg>
+      </a>
     </div>
   </div>
 </template>

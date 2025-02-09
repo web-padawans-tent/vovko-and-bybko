@@ -26,8 +26,12 @@ p {
   margin: 0 auto;
 }
 
-.section-mb {
+.section {
   @include adaptiveValue('margin-bottom', 140, 100);
+
+  &:first-child {
+    @include adaptiveValue('margin-top', 120, 80);
+  }
 }
 
 .price {

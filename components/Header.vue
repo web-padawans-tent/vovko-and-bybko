@@ -16,7 +16,7 @@
           },
           {
             "text": "Портфолио",
-            "link": "/portfolio/",
+            "link": "/portfolios/",
           },
           {
             "text": "Компания",
