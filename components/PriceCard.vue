@@ -23,6 +23,10 @@ export default {
       type: String,
       required: true
     },
+    productId: {
+      type: String,
+      required: true
+    },
     buttonText: {
       type: String,
       default: "ЗАКАЗАТЬ"
@@ -43,8 +47,8 @@ export default {
   <div class="price-card">
     <Heading level="h6">{{title}}</Heading>
     <p class="price">{{ price }}</p>
-    <div class="deadlines">Сроки: {{ deadlines }}</div>
+    <div class="deadlines">{{ deadlines }}</div>
     <p>{{ description }}</p>
-    <Button :color="buttonColor" :fullWidth="buttonFullWidth" customClass="z-btn_style_default z-btn_sm price-card__btn">{{ buttonText }}</Button>
+    <Button type="link" :href="`/product/${productId}`" :color="buttonColor" :fullWidth="buttonFullWidth" customClass="z-btn_style_default z-btn_sm price-card__btn">{{ buttonText }}</Button>
   </div>
 </template>

@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@pinia/nuxt',
-    '@vee-validate/nuxt'
+    '@vee-validate/nuxt',
+    '@nuxtjs/strapi'
   ]
 })

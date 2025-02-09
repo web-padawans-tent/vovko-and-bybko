@@ -6,6 +6,10 @@ export default {
       type: String,
       default: 'button',
     },
+    href: {
+      type: String,
+      default: "#",
+    },
     color: {
       type: String,
       default: "transparent",
@@ -34,10 +38,19 @@ export default {
 </script>
 
 <template>
+  <a
+    v-if="type === 'link'"
+    :href="href"
+    :class="['z-btn', colorClass, customClass, { 'z-btn_full': fullWidth }]"
+    @click="onClick"
+  >
+    <slot></slot>
+  </a>
   <button
-      :type="type"
-      :class="['z-btn', colorClass, customClass, { 'z-btn_full': fullWidth }]"
-      @click="onClick"
+    v-else
+    :type="type"
+    :class="['z-btn', colorClass, customClass, { 'z-btn_full': fullWidth }]"
+    @click="onClick"
   >
     <slot></slot>
   </button>
