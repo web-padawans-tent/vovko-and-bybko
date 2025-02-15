@@ -50,11 +50,6 @@ export default {
       <div class="footer__main">
         <div class="footer__col">
           <Logo customClasses="mb-2" />
-          <div class="text max-w-[360px] m-auto">
-            <p>
-              Мы любим то что делаем, поэтому каждый проект для нас лучший!
-            </p>
-          </div>
         </div>
         <div class="footer__col">
           <Heading level="h6" customClasses="mb-2">УСЛУГИ</Heading>

@@ -1,39 +1,26 @@
-<script>
+<script setup lang="ts">
 import { useModalStore } from "~/stores/modalStore";
 
-export default {
-  name: 'index',
-  data() {
-    return {
-      modalStore: useModalStore()
-    };
-  },
-  methods: {
-    openModal() {
-      this.modalStore.openModal();
-    }
-  },
-};
-</script>
+const modalStore = useModalStore();
+const openModal = (modalName: string) => modalStore.openModal(modalName);
 
-<script setup>
-  const {data: homeData} = await useFetch("http://localhost:1337/api/home?populate=*");
-  const home = homeData.value?.data;
+const {data: homeData} = await useFetch("http://localhost:1337/api/home?populate=*");
+const home = homeData.value?.data;
 
-  const {data: benefitsData} = await useFetch("http://localhost:1337/api/home?populate=benefits.list");
-  const {benefits} = benefitsData.value?.data;
+const {data: benefitsData} = await useFetch("http://localhost:1337/api/home?populate=benefits.list");
+const {benefits} = benefitsData.value?.data;
 
-  const {data: faqData} = await useFetch("http://localhost:1337/api/home?populate=faq.list");
-  const {faq} = faqData.value?.data;
+const {data: faqData} = await useFetch("http://localhost:1337/api/home?populate=faq.list");
+const {faq} = faqData.value?.data;
 
-  const {data: priceCardData} = await useFetch("http://localhost:1337/api/products?populate=*");
-  const priceCards = priceCardData.value?.data;
+const {data: priceCardData} = await useFetch("http://localhost:1337/api/products?populate=*");
+const priceCards = priceCardData.value?.data;
 
-  const {data: portfolioData} = await useFetch(`http://localhost:1337/api/portfolios?populate=*`);
-  const portfolio = portfolioData.value?.data;
+const {data: portfolioData} = await useFetch(`http://localhost:1337/api/portfolios?populate=*`);
+const portfolio = portfolioData.value?.data;
 
-  const {data: formData} = await useFetch("http://localhost:1337/api/contact-form");
-  const form = formData.value?.data;
+const {data: formData} = await useFetch("http://localhost:1337/api/contact-form");
+const form = formData.value?.data;
 </script>
 
 <template>
@@ -45,7 +32,7 @@ export default {
           <p>{{ home?.subtitle }}</p>
         </div>
         <div class="promo__actions">
-          <Button color="purple" class="z-btn_style_default z-btn_md" :fullWidth="true" @click="openModal">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <Button color="purple" class="z-btn_style_default z-btn_md" :fullWidth="true" @click="openModal('form-contact')">ОСТАВИТЬ ЗАЯВКУ</Button>
           <Button type="link" href="/portfolios" :fullWidth="true" color="white" class="z-btn_style_ghost z-btn_md">Наши работы</Button>
         </div>
       </div>
@@ -100,7 +87,7 @@ export default {
       <div class="text">
         <p class="ml-auto mb-10 max-w-[800px]" v-for="(item, index) in benefits?.text" :key="index">{{ item.children[0].text }}</p>
       </div>
-      <ul class="list"> 
+      <ul class="list">
         <li class="list__item" v-for="(item, index) in benefits.list" :key="index">
           <span class="list__item-number">0{{ index + 1 }}</span>
           <Heading level="h4" customClasses="list__item-title">{{ item?.title }}</Heading>

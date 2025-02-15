@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     closeModal() {
-      this.modalStore.closeModal();
+      this.modalStore.closeModal('form-contact');
       document.body.style.overflow = '';
     },
     onModalClick(e) {
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <template>
-  <div v-if="modalStore.isModalVisible" class="modal" @click="closeModal">
+  <div v-if="modalStore.activeModal === 'form-contact'" class="modal" @click="closeModal">
     <div class="modal__main" @click="onModalClick">
       <button class="modal__close-btn" @click="closeModal">
         <svg class="modal__close-icon">

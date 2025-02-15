@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts">
   const route = useRoute()
 
   const {data: productData} = await useFetch(`http://localhost:1337/api/products/${route.params.id}?populate=*`);
@@ -26,7 +26,7 @@
         <div class="text mb-7">
           <p v-for="(item, index) in data?.text" :key="index">{{ item.children[0].text }}</p>
         </div>
-        <Button color="purple" @click="openModal" class="z-btn_style_default z-btn_md">ОСТАВИТЬ ЗАЯВКУ</Button>
+        <Button color="purple" @click="openModal('form-application')" class="z-btn_style_default z-btn_md">ОСТАВИТЬ ЗАЯВКУ</Button>
       </div>
       <div class="promo__img">
         <img :src="'http://localhost:1337' + data.promoImage.url" alt="">
@@ -62,9 +62,9 @@
     <div class="container-main">
       <div class="steps__head">
         <Heading level="h2">{{ steps.title }}</Heading>
-        <p class="steps__head-text text">
-          <p>{{ steps.text }}</p>
-        </p>
+        <div class="steps__head-text text">
+          <span>{{ steps.text }}</span>
+        </div>
       </div>
       <ul class="list list--col-3">
         <li class="list__item" v-for="(item, index) in steps.list" :key="index">

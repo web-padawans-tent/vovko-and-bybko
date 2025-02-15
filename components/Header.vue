@@ -1,49 +1,45 @@
-<script>
-  import {defineComponent} from 'vue'
-  import {useModalStore} from "~/stores/modalStore";
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { useModalStore } from '~/stores/modalStore';  // Путь к store
+import SubMenu from '~/components/SubMenu.vue';
 
-  export default defineComponent({
-    components: {},
-    name: "header",
-    data() {
-      return {
-        isMenuOpen: false,
-        navItems: [
-          {
-            "text": "Услуги",
-            "link": "/services/",
-            "svg": "arrow_down_right",
-          },
-          {
-            "text": "Портфолио",
-            "link": "/portfolios/",
-          },
-          {
-            "text": "Компания",
-            "link": "/about/",
-          },
-          {
-            "text": "Контакты",
-            "link": "/contacts/",
-          },
-        ]
-      }
+export default defineComponent<Component> ({
+  name: 'Header',
+  components: { SubMenu },
+  data() {
+    return {
+      modalStore: useModalStore(),  // Pinia store
+      isMenuOpen: false,
+      navItems: [
+        { text: 'Услуги', link: '/services/', svg: 'arrow_down_right' },
+        { text: 'Портфолио', link: '/portfolios/' },
+        { text: 'Компания', link: '/about/' },
+        { text: 'Контакты', link: '/contacts/' },
+      ],
+    };
+  },
+  methods: {
+    openModal(modalName: string) {
+      this.modalStore.openModal(modalName);
     },
-    methods: {
-      openModal() {
-        const modalStore = useModalStore();
-        modalStore.openModal();
-      },
-      toggleMenu() {
-        this.isMenuOpen = !this.isMenuOpen;
-        document.body.style.overflow = this.isMenuOpen ? 'hidden' : '';
-      },
-      closeMenu() {
-        this.isMenuOpen = false;
-        document.body.style.overflow = '';
-      }
-    }
-  })
+    closeModal() {
+      this.modalStore.closeModal();
+    },
+    clearTimeOut() {
+      // Необходимо явно определить метод clearTimeOut в store
+      this.modalStore.clearTimeOut();
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+      document.body.style.overflow = this.isMenuOpen ? 'hidden' : '';
+    },
+    closeMenu() {
+      this.isMenuOpen = false;
+      document.body.style.overflow = '';
+    },
+  },
+});
+
 </script>
 
 <template>
@@ -55,16 +51,19 @@
         <!-- Меню навигации -->
         <nav class="header__nav ml-auto">
           <ul class="header__nav-list flex space-x-6">
-            <li class="flex items-center gap-2" v-for="(item, index) in navItems" :key="index">
-              <a :href="item.link" class="text-xl text-white">
+            <li class="relative" v-for="(item, index) in navItems" :key="index"
+                @mouseover="index === 0 && openModal('subMenu'); clearTimeOut"
+                @mouseleave="closeModal">
+              <a :href="item.link" class="text-xl flex items-center gap-2 text-white">
                 {{ item.text }}
+                <svg v-if="item.svg" class="w-4 h-4 fill-white">
+                  <use :xlink:href="`#${item.svg}`"></use>
+                </svg>
               </a>
-              <svg v-if="item.svg" class="w-4 h-4 fill-white">
-                <use :xlink:href="`#${item.svg}`"></use>
-              </svg>
+              <sub-menu v-if="index === 0"/>
             </li>
           </ul>
-          <Button @click="openModal" color="purple" class="z-btn_style_default z-btn_md z-btn_glow">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <Button @click="openModal('form-contact')" color="purple" class="z-btn_style_default z-btn_md z-btn_glow">ОСТАВИТЬ ЗАЯВКУ</Button>
         </nav>
 
         <!-- Бургер-меню для мобильных устройств -->
