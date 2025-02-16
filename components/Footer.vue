@@ -23,7 +23,7 @@ export default {
         { text: "Контакты", link: "/contacts/" },
       ],
       socials: [
-        { text: "Telegram", link: "href=\"https://t.me/zbybko\" target=\"_blank\"", svg: "telegram", extraClass: "footer__list-item_tg" },
+        { text: "Telegram", link: "https://t.me/zbybko", svg: "telegram", extraClass: "footer__list-item_tg" },
         { text: "Email", link: "mailto:vovko.and.bybko@gmail.com", svg: "email", extraClass: "footer__list-item_email" },
         { text: "WhatsApp", link: "#", svg: "whatsapp", extraClass: "footer__list-item_wa" },
       ],
