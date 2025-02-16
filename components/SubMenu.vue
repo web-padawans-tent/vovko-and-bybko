@@ -57,6 +57,7 @@ function clearTimeOut() {
   right: -125px
   padding: 5px 0
   border: 1px solid rgb(255, 255, 255, 0.3)
+  background: #000
   .menu-list__item
     padding: 8px 10px
     &:not(:last-child)

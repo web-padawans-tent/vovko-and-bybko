@@ -2,6 +2,7 @@
 import Button from "~/components/Button.vue";
 import Heading from "~/components/Heading.vue";
 import { useModalStore } from "~/stores/modalStore";
+import {findOne} from "domutils";
 
 export default {
   name: "Footer",
@@ -11,22 +12,9 @@ export default {
   },
   data() {
     return {
-      menuServices: [
-        { text: "Лендинг", link: "/landing/" },
-        { text: "Сайт визитка", link: "/site-card/" },
-        { text: "Корпоративный сайт", link: "/corporation-site/" },
-        { text: "Интернет магазин", link: "/web-market/" },
-      ],
-      about: [
-        { text: "Портфолио", link: "/portfolio/" },
-        { text: "О нас", link: "/about/" },
-        { text: "Контакты", link: "/contacts/" },
-      ],
-      socials: [
-        { text: "Telegram", link: "href=\"https://t.me/zbybko\" target=\"_blank\"", svg: "telegram", extraClass: "footer__list-item_tg" },
-        { text: "Email", link: "mailto:vovko.and.bybko@gmail.com", svg: "email", extraClass: "footer__list-item_email" },
-        { text: "WhatsApp", link: "#", svg: "whatsapp", extraClass: "footer__list-item_wa" },
-      ],
+      menuServices: [],
+      about: [],
+      socials: [],
       texts: [
         {
           textLogo: "Vovko & Bybko Studio",
@@ -36,11 +24,22 @@ export default {
     };
   },
   methods: {
-    openModal() {
+    openModal(modalName: string) {
       const modalStore = useModalStore();
-      modalStore.openModal();
+      modalStore.openModal(modalName);
     },
   },
+  async created() {
+    try {
+      const { find, findOne } = useStrapi();
+      const { data : response } = await findOne('menu-bottoms', { populate: '*' });
+      this.menuServices = response[0].services || [];
+      this.about = response[0].menuLinksAbout || [];
+      this.socials = response[0].menuLinksSocials || [];
+    } catch (error) {
+      console.error('Ошибка загрузки навигации:', error);
+    }
+  }
 };
 </script>
 
@@ -55,7 +54,7 @@ export default {
           <Heading level="h6" customClasses="mb-2">УСЛУГИ</Heading>
           <ul class="footer__list">
             <li class="footer__list-item" v-for="(item, i) in menuServices" :key="i">
-              <a :href="item.link">{{ item.text }}</a>
+              <a :href="'/products/' + item.slug">{{ item.title }}</a>
             </li>
           </ul>
         </div>
@@ -63,7 +62,7 @@ export default {
           <Heading level="h6" customClasses="mb-2">О КОМПАНИИ</Heading>
           <ul class="footer__list">
             <li class="footer__list-item" v-for="(item, i) in about" :key="i">
-              <a :href="item.link">{{ item.text }}</a>
+              <a :href="item.link">{{ item.name }}</a>
             </li>
           </ul>
         </div>
@@ -74,7 +73,7 @@ export default {
               <svg v-if="item.svg" class="w-5 h-5 svg-ico svg-ico_no-stroke">
                 <use :xlink:href="`#${item.svg}`"></use>
               </svg>
-              <a :href="item.link">{{ item.text }}</a>
+              <a :href="item.link">{{ item.name }}</a>
             </li>
           </ul>
         </div>

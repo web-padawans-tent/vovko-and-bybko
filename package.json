@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/strapi": "^2.0.0",
+    "@nuxtjs/strapi": "npm:@nuxtjs/strapi-edge@latest",
     "nuxt": "^3.14.1592",
     "v-mask": "^2.3.0",
     "vue": "latest",
@@ -20,6 +20,8 @@
   "devDependencies": {
     "@nuxt/fonts": "^0.10.2",
     "@nuxt/icon": "^1.10.3",
+    "@nuxtjs/i18n": "^9.2.0",
+    "@nuxtjs/strapi": "npm:@nuxtjs/strapi-edge@latest",
     "@pinia/nuxt": "^0.9.0",
     "@vee-validate/nuxt": "^4.15.0",
     "autoprefixer": "^10.4.20",

@@ -3,6 +3,7 @@ import { defineComponent } from 'vue';
 import { useModalStore } from '~/stores/modalStore';  // Путь к store
 import SubMenu from '~/components/SubMenu.vue';
 
+
 export default defineComponent<Component> ({
   name: 'Header',
   components: { SubMenu },
@@ -10,12 +11,7 @@ export default defineComponent<Component> ({
     return {
       modalStore: useModalStore(),  // Pinia store
       isMenuOpen: false,
-      navItems: [
-        { text: 'Услуги', link: '/services/', svg: 'arrow_down_right' },
-        { text: 'Портфолио', link: '/portfolios/' },
-        { text: 'Компания', link: '/about/' },
-        { text: 'Контакты', link: '/contacts/' },
-      ],
+      navItems: [] as any[],
     };
   },
   methods: {
@@ -26,7 +22,6 @@ export default defineComponent<Component> ({
       this.modalStore.closeModal();
     },
     clearTimeOut() {
-      // Необходимо явно определить метод clearTimeOut в store
       this.modalStore.clearTimeOut();
     },
     toggleMenu() {
@@ -38,6 +33,15 @@ export default defineComponent<Component> ({
       document.body.style.overflow = '';
     },
   },
+  async created() {
+    try {
+      const { find } = useStrapi();
+      const response = await find('menu-tops', { sort: 'sort:asc' });
+      this.navItems = response.data || [];
+    } catch (error) {
+      console.error('Ошибка загрузки навигации:', error);
+    }
+  }
 });
 
 </script>
@@ -55,7 +59,7 @@ export default defineComponent<Component> ({
                 @mouseover="index === 0 && openModal('subMenu'); clearTimeOut"
                 @mouseleave="closeModal">
               <a :href="item.link" class="text-xl flex items-center gap-2 text-white">
-                {{ item.text }}
+                {{ item.title }}
                 <svg v-if="item.svg" class="w-4 h-4 fill-white">
                   <use :xlink:href="`#${item.svg}`"></use>
                 </svg>
@@ -86,7 +90,7 @@ export default defineComponent<Component> ({
           {{ item.text }}
         </a>
         <svg v-if="item.svg" class="w-4 h-4 fill-white">
-          <use :xlink:href="`#${item.svg}`"></use>
+          <use :href="`#${item.svg}`"></use>
         </svg>
       </li>
     </ul>
