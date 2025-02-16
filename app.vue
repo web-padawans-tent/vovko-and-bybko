@@ -22,4 +22,8 @@
 <script setup lang="ts">
   import SvgSprite from "~/components/SvgSprite.vue";
   import Footer from "~/components/Footer.vue";
+
+  useHead({
+    title: "V&B Studio",
+  })
 </script>

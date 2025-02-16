@@ -21,11 +21,11 @@ export default {
 
 <template>
   <div class="form-field">
-    <input 
+    <input
       :id="id"
-      v-mask="'+380 (##) ###-##-##'" 
-      type="tel" 
-      placeholder="+380 (__) ___-__-__"
+      v-mask="'+380 (##) ###-##-##'"
+      type="tel"
+      placeholder="+49 (__) ___-__-__"
       :class="['form-field__input', customClass]"
       :disabled="disabled"
       :value="modelValue"
