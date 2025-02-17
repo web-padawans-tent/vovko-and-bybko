@@ -65,6 +65,7 @@ export default {
     },
     modelValue: {  
       type: Boolean,
+      default: false,
       required: true,
     },
     onClick: {

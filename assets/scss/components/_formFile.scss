@@ -1,0 +1,53 @@
+@use '../utils/variables' as *;
+@use '../utils/functions' as *;
+@use '../utils/mixins' as *;
+
+.form-file {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+
+  &:hover {
+    .form-file__btn {
+      background-color: #fff;
+
+      svg {
+        fill: #000;
+      }
+    }
+
+    .form-file__text {
+      color: #fff;
+    }
+  }
+
+  &__btn {
+    display: inline-block;
+    padding: pxToRem(10);
+    border-radius: 50%;
+    border: 1px solid rgba(#fff, 0.3);
+    transition: background-color .3s ease;
+
+    svg {
+      transition: fill .3s ease;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    padding: 0px;
+    margin: 0px;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+  }
+
+  &__text {
+    transition: color .3s ease;
+  }
+}
