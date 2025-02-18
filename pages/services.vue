@@ -28,14 +28,10 @@ const {home, priceCards} = data;
               :price="item.priceCard.price"
               :deadlines="item.priceCard.deadlines"
               :description="item.priceCard.descr"
-              :productId="item.documentId"
+              :productId="item.slug"
           />
         </template>
       </div>
     </div>
   </section>
 </template>
-
-<style scoped lang="sass">
-
-</style>
