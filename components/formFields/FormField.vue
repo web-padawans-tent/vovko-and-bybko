@@ -5,8 +5,7 @@ export default {
     id: { type: String, required: true },
     type: {
       type: String,
-      default: "text",
-      validator: (value) => ["text", "email"].includes(value)
+      default: "text"
     },
     modelValue: {
       type: [String, Number],

@@ -1,11 +1,11 @@
 <script>
-import { useForm, useField } from 'vee-validate';
 import FormField from "~/components/formFields/FormField.vue";
 import TextareaField from '~/components/formFields/TextareaField.vue';
 import Checkbox from '~/components/formFields/Checkbox.vue';
 import FileField from './formFields/FileField.vue';
 import Button from "~/components/Button.vue";
 import Heading from "~/components/Heading.vue";
+import {useField, useForm} from "vee-validate";
 
 export default {
   name: "Form",
@@ -84,9 +84,9 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           data: {
-            name, 
-            email, 
-            social, 
+            name,
+            email,
+            social,
             message: [{ type: "paragraph", children: [{ type: "text", text: message }] }],
             file: fileId,
           }
@@ -132,7 +132,7 @@ export default {
       type="square"
       name="aggree"
       id="aggree"
-      :isError="!!aggreeError" 
+      :isError="!!aggreeError"
       className="mb-2"
     >
       Согласие на обработку персональных данных

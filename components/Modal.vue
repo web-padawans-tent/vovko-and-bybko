@@ -58,7 +58,7 @@ export default {
       </button>
       <div class="modal__content">
         <Heading level="h3" customClasses="mb-3">ОСТАВЬТЕ ЗАЯВКУ</Heading>
-        <Form customClasses="modal__form" />
+<!--        <Form customClasses="modal__form" />-->
       </div>
     </div>
   </div>

@@ -15,7 +15,7 @@ const endpoints = [
 ];
 
 const results = await Promise.all(
-    endpoints.map(({key, path, options, method = "find"}) =>
+    endpoints.map(({path, options, method = "find"}) =>
         method === "findOne" ? findOne(path) : find(path, options)
     )
 );
@@ -124,7 +124,7 @@ const {home, benefits, faq, priceCards, portfolio, form} = data;
       </div>
     </div>
   </section>
-  <section class="action section">
+<!--  <section class="action section">
     <div class="container-main">
       <div class="action__main">
         <div>
@@ -137,5 +137,5 @@ const {home, benefits, faq, priceCards, portfolio, form} = data;
               text="Заполните форму и с вами сконтактирует наш специалист"/>
       </div>
     </div>
-  </section>
+  </section>-->
 </template>

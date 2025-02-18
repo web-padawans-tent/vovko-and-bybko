@@ -3,11 +3,8 @@
 </script>
 
 <template>
-  <div class="hidden">
-    <SvgSprite/>
-  </div>
   <div class="wrapper">
-    <Header/>
+    <Header />
     <div class="hidden">
       <SvgSprite />
     </div>
@@ -15,14 +12,11 @@
       <nuxt-page/>
     </main>
     <Footer/>
-    <Modal />
+<!--    <Modal />-->
   </div>
 </template>
 
 <script setup lang="ts">
-  import SvgSprite from "~/components/SvgSprite.vue";
-  import Footer from "~/components/Footer.vue";
-
   useHead({
     title: "V&B Studio",
   })
