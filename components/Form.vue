@@ -30,6 +30,10 @@ export default {
       type: [String, Array, Object],
       default: "",
     },
+    checkboxId: {
+      type: String,
+      default: 'aggree'
+    }
   },
   setup() {
     const { handleSubmit, resetForm } = useForm();
@@ -131,7 +135,7 @@ export default {
       v-model="aggree"
       type="square"
       name="aggree"
-      id="aggree"
+      :id="checkboxId"
       :isError="!!aggreeError" 
       className="mb-2"
     >
