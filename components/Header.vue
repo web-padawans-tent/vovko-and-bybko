@@ -1,21 +1,21 @@
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 import { useModalStore } from '~/stores/modalStore';  // Путь к store
 import SubMenu from '~/components/SubMenu.vue';
 
 
-export default defineComponent<Component> ({
+export default defineComponent({
   name: 'Header',
   components: { SubMenu },
   data() {
     return {
       modalStore: useModalStore(),  // Pinia store
       isMenuOpen: false,
-      navItems: [] as any[],
+      navItems: []
     };
   },
   methods: {
-    openModal(modalName: string) {
+    openModal(modalName) {
       this.modalStore.openModal(modalName);
     },
     closeModal() {
@@ -43,7 +43,18 @@ export default defineComponent<Component> ({
     }
   }
 });
+</script>
 
+<script setup>
+import { ref } from 'vue';
+
+const currentLang = ref('us');
+
+const availableLanguages = {
+  us: 'US',
+  ua: 'UA',
+  de: 'DE'
+};
 </script>
 
 <template>
@@ -68,6 +79,7 @@ export default defineComponent<Component> ({
             </li>
           </ul>
           <Button @click="openModal('form-contact')" color="purple" class="z-btn_style_default z-btn_md z-btn_glow">ОСТАВИТЬ ЗАЯВКУ</Button>
+          <SwitchLangBtn v-model="currentLang" :languages="availableLanguages" />
         </nav>
 
         <!-- Бургер-меню для мобильных устройств -->
