@@ -1,34 +1,29 @@
-<script setup>
+<script setup lang="ts">
   const route = useRoute()
 
   const { find, findOne } = useStrapi()
 
-  const {data: productData} = await find("products/", {
+  const {data: product} = await find("products/", {
     filters: { slug: `${route.params.slug}` },
     populate: "*",
   });
 
-  const {data: benefitsData} = await find("products/", {
+  const {data: benefits} = await find("products/", {
     filters: { slug: `${route.params.slug}` },
     populate: "benefits.list",
   });
 
-  const {data: stepsData} = await find("products/", {
+  const {data: steps} = await find("products/", {
     filters: { slug: `${route.params.slug}` },
     populate: "steps.list",
   });
 
-  const {data: faqData} = await find("products/", {
+  const {data: faq} = await find("products/", {
     filters: { slug: `${route.params.slug}` },
     populate: "faq.list",
   });
 
   const {data: form} = await findOne("contact-form");
-
-  const product = productData[0] || null;
-  const benefits = benefitsData[0].benefits || null;
-  const steps = stepsData[0].steps || null;
-  const faq = faqData[0].faq || null;  
 </script>
 
 <template>
@@ -100,7 +95,7 @@
             </Accordion>
           </div>
         </div>
-        <img class="faq__decor" src="../../assets/images/faq-decor.svg" alt="">
+        <img class="faq__decor" src="../assets/images/faq-decor.svg" alt="">
       </div>
     </div>
   </section>

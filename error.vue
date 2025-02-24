@@ -1,7 +1,8 @@
 <script setup lang="ts">
 
-import Footer from "~/components/Footer.vue";
-import SvgSprite from "~/components/SvgSprite.vue";
+const strapiStore = useStrapiStore()
+await strapiStore.fetchMenuTop()
+
 </script>
 
 <template>

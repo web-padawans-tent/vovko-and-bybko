@@ -7,7 +7,7 @@ const endpoints = [
 ];
 
 const results = await Promise.all(
-    endpoints.map(({key, path, options, method = "find"}) =>
+    endpoints.map(({path, options, method = "find"}) =>
         method === "findOne" ? findOne(path) : find(path, options)
     )
 );

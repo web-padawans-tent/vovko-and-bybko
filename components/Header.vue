@@ -1,60 +1,37 @@
-<script>
-import { defineComponent } from 'vue';
-import { useModalStore } from '~/stores/modalStore';  // Путь к store
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useModalStore } from '~/stores/modalStore';
 import SubMenu from '~/components/SubMenu.vue';
 
+const strapiStore = useStrapiStore()
 
-export default defineComponent({
-  name: 'Header',
-  components: { SubMenu },
-  data() {
-    return {
-      modalStore: useModalStore(),  // Pinia store
-      isMenuOpen: false,
-      navItems: []
-    };
-  },
-  methods: {
-    openModal(modalName) {
-      this.modalStore.openModal(modalName);
-    },
-    closeModal() {
-      this.modalStore.closeModal();
-    },
-    clearTimeOut() {
-      this.modalStore.clearTimeOut();
-    },
-    toggleMenu() {
-      this.isMenuOpen = !this.isMenuOpen;
-      document.body.style.overflow = this.isMenuOpen ? 'hidden' : '';
-    },
-    closeMenu() {
-      this.isMenuOpen = false;
-      document.body.style.overflow = '';
-    },
-  },
-  async created() {
-    try {
-      const { find } = useStrapi();
-      const response = await find('menu-tops', { sort: 'sort:asc' });
-      this.navItems = response.data || [];
-    } catch (error) {
-      console.error('Ошибка загрузки навигации:', error);
-    }
-  }
-});
-</script>
+const modalStore = useModalStore();
+await strapiStore.fetchMenuTop()
 
-<script setup>
-import { ref } from 'vue';
+const isMenuOpen = ref(false);
 
-const currentLang = ref('us');
-
-const availableLanguages = {
-  us: 'US',
-  ua: 'UA',
-  de: 'DE'
+const openModal = (modalName: string) => {
+  modalStore.openModal(modalName);
 };
+
+const closeModal = () => {
+  modalStore.closeModal();
+};
+
+const clearTimeOut = () => {
+  modalStore.clearTimeOut();
+};
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+  document.body.style.overflow = isMenuOpen.value ? 'hidden' : '';
+};
+
+const closeMenu = () => {
+  isMenuOpen.value = false;
+  document.body.style.overflow = '';
+};
+
 </script>
 
 <template>
@@ -66,7 +43,7 @@ const availableLanguages = {
         <!-- Меню навигации -->
         <nav class="header__nav ml-auto">
           <ul class="header__nav-list flex space-x-6">
-            <li class="relative" v-for="(item, index) in navItems" :key="index"
+            <li class="relative" v-for="(item, index) in strapiStore.menuTops" :key="index"
                 @mouseover="index === 0 && openModal('subMenu'); clearTimeOut"
                 @mouseleave="closeModal">
               <a :href="item.link" class="text-xl flex items-center gap-2 text-white">
@@ -79,7 +56,6 @@ const availableLanguages = {
             </li>
           </ul>
           <Button @click="openModal('form-contact')" color="purple" class="z-btn_style_default z-btn_md z-btn_glow">ОСТАВИТЬ ЗАЯВКУ</Button>
-          <SwitchLangBtn v-model="currentLang" :languages="availableLanguages" />
         </nav>
 
         <!-- Бургер-меню для мобильных устройств -->
@@ -97,9 +73,9 @@ const availableLanguages = {
     <button type="button" @click="closeMenu" class="mobile-menu__close"></button>
     <Logo customClasses="mobile-menu__logo" />
     <ul class="mobile-menu__list">
-      <li class="mobile-menu__item" v-for="(item, index) in navItems" :key="index">
+      <li class="mobile-menu__item" v-for="(item, index) in strapiStore.menuTops" :key="index">
         <a :href="item.link" class="mobile-menu__item-link">
-          {{ item.text }}
+          {{ item.title }}
         </a>
         <svg v-if="item.svg" class="w-4 h-4 fill-white">
           <use :href="`#${item.svg}`"></use>

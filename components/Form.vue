@@ -88,9 +88,9 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           data: {
-            name, 
-            email, 
-            social, 
+            name,
+            email,
+            social,
             message: [{ type: "paragraph", children: [{ type: "text", text: message }] }],
             file: fileId,
           }
@@ -136,7 +136,7 @@ export default {
       type="square"
       name="aggree"
       :id="checkboxId"
-      :isError="!!aggreeError" 
+      :isError="!!aggreeError"
       className="mb-2"
     >
       Согласие на обработку персональных данных

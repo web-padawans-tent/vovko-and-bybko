@@ -13,6 +13,7 @@
     "@nuxtjs/strapi": "npm:@nuxtjs/strapi-edge@latest",
     "nuxt": "^3.14.1592",
     "v-mask": "^2.3.0",
+    "vee-validate": "^4.15.0",
     "vue": "latest",
     "vue-router": "latest",
     "vue-the-mask": "^0.11.1"

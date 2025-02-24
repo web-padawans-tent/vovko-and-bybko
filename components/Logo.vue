@@ -1,14 +1,14 @@
 <template>
   <div :class="['logo flex gap-3 items-center', customClasses]">
-    <router-link to="/">
+    <a href="/">
       <img class="logo__img max-w-10" src="/assets/images/Logo.png" alt="logo"/>
-    </router-link>
+    </a>
 
-    <router-link to="/">
+    <a href="/">
       <span class="logo__text text-white text-xl">
         Vovko & Bybko Studio
       </span>
-    </router-link>
+    </a>
   </div>
 </template>
 

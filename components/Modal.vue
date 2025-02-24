@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     closeModal() {
-      this.modalStore.closeModal('form-contact');
+      this.modalStore.closeModal();
       document.body.style.overflow = '';
     },
     onModalClick(e) {
@@ -58,7 +58,7 @@ export default {
       </button>
       <div class="modal__content">
         <Heading level="h3" customClasses="mb-3">ОСТАВЬТЕ ЗАЯВКУ</Heading>
-        <Form customClasses="modal__form" checkboxId="aggree-modal" />
+        <Form customClasses="modal__form" checkboxId="aggree-modal"  title=""/>
       </div>
     </div>
   </div>
