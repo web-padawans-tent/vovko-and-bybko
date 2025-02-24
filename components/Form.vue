@@ -1,11 +1,11 @@
 <script>
+import { useForm, useField } from 'vee-validate';
 import FormField from "~/components/formFields/FormField.vue";
 import TextareaField from '~/components/formFields/TextareaField.vue';
 import Checkbox from '~/components/formFields/Checkbox.vue';
 import FileField from './formFields/FileField.vue';
 import Button from "~/components/Button.vue";
 import Heading from "~/components/Heading.vue";
-import {useField, useForm} from "vee-validate";
 
 export default {
   name: "Form",
@@ -30,6 +30,10 @@ export default {
       type: [String, Array, Object],
       default: "",
     },
+    checkboxId: {
+      type: String,
+      default: 'aggree'
+    }
   },
   setup() {
     const { handleSubmit, resetForm } = useForm();
@@ -131,7 +135,7 @@ export default {
       v-model="aggree"
       type="square"
       name="aggree"
-      id="aggree"
+      :id="checkboxId"
       :isError="!!aggreeError"
       className="mb-2"
     >

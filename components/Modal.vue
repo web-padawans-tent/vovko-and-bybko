@@ -27,21 +27,21 @@ export default {
     }
   },
   mounted() {
-    if (this.modalStore.isModalVisible) {
+    if (this.modalStore.activeModal) {
       document.body.style.overflow = 'hidden';
     }
 
     window.addEventListener('keydown', this.onKeydown);
   },
   beforeUnmount() {
-    if (this.modalStore.isModalVisible) {
+    if (this.modalStore.activeModal) {
       document.body.style.overflow = 'hidden';
     }
 
     window.removeEventListener('keydown', this.onKeydown);
   },
   watch: {
-    'modalStore.isModalVisible'(newVal) {
+    'modalStore.activeModal'(newVal) {
       document.body.style.overflow = newVal ? 'hidden' : '';
     }
   }
@@ -58,7 +58,7 @@ export default {
       </button>
       <div class="modal__content">
         <Heading level="h3" customClasses="mb-3">ОСТАВЬТЕ ЗАЯВКУ</Heading>
-        <Form customClasses="modal__form"  title=""/>
+        <Form customClasses="modal__form" checkboxId="aggree-modal"  title=""/>
       </div>
     </div>
   </div>

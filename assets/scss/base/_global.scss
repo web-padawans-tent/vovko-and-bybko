@@ -29,7 +29,7 @@ p {
   @include adaptiveValue('margin-bottom', 140, 100);
 
   &:first-child {
-    @include adaptiveValue('margin-top', 120, 80);
+    @include adaptiveValue('margin-top', 80, 60);
   }
 }
 

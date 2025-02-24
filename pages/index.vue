@@ -70,7 +70,7 @@ const {home, benefits, faq, priceCards, portfolio, form} = data;
               :price="item.priceCard.price"
               :deadlines="item.priceCard.deadlines"
               :description="item.priceCard.descr"
-              :productId="item.documentId"
+              :productId="item.slug"
           />
         </template>
       </div>
