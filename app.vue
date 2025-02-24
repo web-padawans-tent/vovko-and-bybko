@@ -12,7 +12,7 @@
       <nuxt-page/>
     </main>
     <Footer/>
-<!--    <Modal />-->
+    <Modal />
   </div>
 </template>
 
