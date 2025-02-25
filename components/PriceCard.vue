@@ -49,6 +49,6 @@ export default {
     <p class="price">{{ price }}</p>
     <div class="deadlines">{{ deadlines }}</div>
     <p>{{ description }}</p>
-    <Button type="link" :href="`/product/${productId}`" :color="buttonColor" :fullWidth="buttonFullWidth" customClass="z-btn_style_default z-btn_sm price-card__btn">{{ buttonText }}</Button>
+    <Button type="link" :href="`/services/${productId}`" :color="buttonColor" :fullWidth="buttonFullWidth" customClass="z-btn_style_default z-btn_sm price-card__btn">{{ buttonText }}</Button>
   </div>
 </template>

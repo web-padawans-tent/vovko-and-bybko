@@ -31,7 +31,7 @@ export default {
 
 <template>
   <div class="product-card">
-    <a :href="`/portfolio/${slug}`" class="product-card__img-wrapper">
+    <a :href="`/portfolios/${slug}`" class="product-card__img-wrapper">
       <img :src="'http://localhost:1337' + imageUrl"  :alt="title" class="product-card__img" />
     </a>
     <div class="product-card__content">

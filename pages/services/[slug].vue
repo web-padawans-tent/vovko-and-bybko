@@ -3,22 +3,22 @@
 
   const { find, findOne } = useStrapi()
 
-  const {data: product} = await find("products/", {
+  const {data: product} = await find("services/", {
     filters: { slug: `${route.params.slug}` },
     populate: "*",
   });
 
-  const {data: benefits} = await find("products/", {
+  const {data: benefits} = await find("services/", {
     filters: { slug: `${route.params.slug}` },
     populate: "benefits.list",
   });
 
-  const {data: steps} = await find("products/", {
+  const {data: steps} = await find("services/", {
     filters: { slug: `${route.params.slug}` },
     populate: "steps.list",
   });
 
-  const {data: faq} = await find("products/", {
+  const {data: faq} = await find("services/", {
     filters: { slug: `${route.params.slug}` },
     populate: "faq.list",
   });
