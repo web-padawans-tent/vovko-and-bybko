@@ -9,7 +9,7 @@ const endpoints = [
   {key: "home", path: "home", options: {populate: "*"}},
   {key: "benefits", path: "home", options: {populate: "benefits.list"}},
   {key: "faq", path: "home", options: {populate: "faq.list"}},
-  {key: "priceCards", path: "products", options: {populate: "*", sort: 'id:asc'}},
+/*  {key: "priceCards", path: "services", options: {populate: "*", sort: 'id:asc'}},*/
   {key: "portfolio", path: "portfolios", options: {populate: "*"}},
   {key: "form", path: "contact-form", method: "findOne"},
 ];
@@ -22,7 +22,7 @@ const results = await Promise.all(
 
 const data = Object.fromEntries(endpoints.map(({key}, index) => [key, results[index]?.data || null]));
 
-const {home, benefits, faq, priceCards, portfolio, form} = data;
+const {home, benefits, faq, portfolio, form} = data;
 </script>
 
 <template>
@@ -62,9 +62,9 @@ const {home, benefits, faq, priceCards, portfolio, form} = data;
   </section>
   <section class="section">
     <div class="container-main">
-      <Heading level="h2" customClasses="mb-8 text-center">{{ home?.servicesTitle }}</Heading>
+<!--      <Heading level="h2" customClasses="mb-8 text-center">{{ home?.servicesTitle }}</Heading>-->
       <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-7">
-        <template v-for="(item, index) in priceCards" :key="index">
+<!--        <template v-for="(item, index) in priceCards" :key="index">
           <PriceCard
               :title="item.priceCard.title"
               :price="item.priceCard.price"
@@ -72,7 +72,7 @@ const {home, benefits, faq, priceCards, portfolio, form} = data;
               :description="item.priceCard.descr"
               :productId="item.slug"
           />
-        </template>
+        </template>-->
       </div>
     </div>
   </section>

@@ -24,14 +24,14 @@ const texts = ref([
           <Heading level="h6" customClasses="mb-2">УСЛУГИ</Heading>
           <ul class="footer__list">
             <li class="footer__list-item" v-for="(item, i) in strapiStore.menuBottoms[0].services" :key="i">
-              <a :href="'/products/' + item.slug">{{ item.title }}</a>
+              <a :href="'/services/' + item.slug">{{ item.title }}</a>
             </li>
           </ul>
         </div>
         <div class="footer__col">
           <Heading level="h6" customClasses="mb-2">О КОМПАНИИ</Heading>
           <ul class="footer__list">
-            <li class="footer__list-item" v-for="(item, i) in strapiStore.menuBottoms[0].about" :key="i">
+            <li class="footer__list-item" v-for="(item, i) in strapiStore.menuBottoms[0].menuLinksAbout" :key="i">
               <a :href="item.link">{{ item.name }}</a>
             </li>
           </ul>
@@ -39,7 +39,7 @@ const texts = ref([
         <div class="footer__col">
           <Heading level="h6" customClasses="mb-2">МЫ ВСЕГДА НА СВЯЗИ</Heading>
           <ul class="footer__list">
-            <li :class="['footer__list-item', 'flex', 'gap-2', 'items-center', item.extraClass]" v-for="(item, i) in strapiStore.menuBottoms[0].socials" :key="i">
+            <li :class="['footer__list-item', 'flex', 'gap-2', 'items-center', item.extraClass]" v-for="(item, i) in strapiStore.menuBottoms[0].menuLinksSocials" :key="i">
               <svg v-if="item.svg" class="w-5 h-5 svg-ico svg-ico_no-stroke">
                 <use :xlink:href="`#${item.svg}`"></use>
               </svg>
