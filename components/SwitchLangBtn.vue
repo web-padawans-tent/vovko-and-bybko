@@ -1,7 +1,7 @@
 <template>
   <div class="lang-switcher">
     <button @click="toggleDropdown" class="lang-switcher__btn">
-      {{ languages[modelValue] }}
+      {{ languages[selectedLang] }}
       <svg class="lang-switcher__icon svg-ico svg-ico_no-fill">
         <use xlink:href="#chevron_right"></use>
       </svg>
@@ -19,33 +19,43 @@
 </template>
 
 <script setup>
-import { ref, computed, defineProps, defineEmits } from 'vue';
+import {ref, computed, onMounted} from 'vue';
 
-const props = defineProps({
-  modelValue: String,
-  languages: Object
-});
+// Доступные языки
+const languages = {
+  en: "EN",
+  de: "DE",
+  ru: "RU",
+};
 
-const emit = defineEmits(['update:modelValue']);
-
+// Открыт ли дропдаун
 const isOpen = ref(false);
 
-const filteredLanguages = computed(() => {
-  return Object.fromEntries(Object.entries(props.languages).filter(([code]) => code !== props.modelValue));
+// Определяем текущий язык по поддомену
+const selectedLang = ref("en");
+
+onMounted(() => {
+  selectedLang.value = getCurrentLang();
 });
 
+// Получение языка из поддомена
+const getCurrentLang = () => {
+  const subdomain = window.location.hostname.split(".")[0];
+  return languages[subdomain] ? subdomain : "ru";
+};
+
+// Переключение языка
+const changeLanguage = (lang) => {
+  window.location.href = `http://${lang}.localhost:3000${window.location.pathname}`;
+};
+
+// Оставляем только языки, кроме текущего
+const filteredLanguages = computed(() => {
+  return Object.fromEntries(Object.entries(languages).filter(([code]) => code !== selectedLang.value));
+});
+
+// Открытие/закрытие дропдауна
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
 };
-
-const changeLanguage = (code) => {
-  emit('update:modelValue', code);
-  isOpen.value = false;
-};
 </script>
-
-<style scoped>
-button:focus {
-  outline: none;
-}
-</style>

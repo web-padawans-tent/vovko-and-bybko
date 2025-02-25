@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useModalStore } from '~/stores/modalStore';
-import SubMenu from '~/components/SubMenu.vue';
 
 const strapiStore = useStrapiStore()
 
@@ -64,6 +63,8 @@ const closeMenu = () => {
           <span class="block w-6 h-0.5 bg-white mb-2"></span>
           <span class="block w-6 h-0.5 bg-white"></span>
         </button>
+
+        <switch-lang-btn />
       </div>
     </div>
   </header>
