@@ -3,73 +3,77 @@
 @use '../utils/mixins' as *;
 
 .mobile-menu {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 100%;
   left: 0;
-  bottom: 0;
   right: 0;
-  padding: pxToRem(120) pxToRem(15) pxToRem(60);
-  background-color: #19161C;
-  overflow-y: scroll;
-  opacity: 0;
+  transform: translateY(-100%);
+  padding: pxToRem(20) 15px 0;
+  margin: 5px 0 0;
+  background-color: #000;
   z-index: -1;
-  transition: z-index .3s ease-in-out, opacity .3s linear;
+  transition: top .3s linear, transform .3s linear;
+
+  @media (min-width: em($tablet)) {
+    display: none;
+  }
 
   &--open {
-    opacity: 1;
-    z-index: 101;
+    top: 100%;
+    transform: translateY(0);
+    margin: 0;
+  }
+
+  &__wrapper {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(#fff, 0.3);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   &__close {
     position: absolute;
-    top: 15px;
-    right: 25px;
+    top: 25px;
+    right: 20px;
     width: 30px;
     height: 30px;
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%) rotate(-45deg);
-      width: 2px;
-      height: 100%;
-      background-color: #fff;
-    }
-
+    &::before,
     &::after {
       content: '';
       position: absolute;
       top: 0;
       left: 50%;
-      transform: translateX(-50%) rotate(45deg);
       width: 2px;
       height: 100%;
       background-color: #fff;
+      transform: translateY(-50%);
     }
-  }
 
-  &__logo {
-    justify-content: center;
-    margin-bottom: pxToRem(20);
+    &::before {
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
   }
 
   &__list {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: pxToRem(8);
+    gap: pxToRem(6);
+    margin-bottom: pxToRem(30);
   }
 
   &__item {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: pxToRem(10);
   }
 
   &__item-link {
     padding: pxToRem(4);
-    @include adaptiveValue('font-size', 32, 26);  
+    font-size: 24px;
   }
 }

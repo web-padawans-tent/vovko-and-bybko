@@ -1,10 +1,7 @@
 <template>
-  <div :class="['logo flex gap-3 items-center', customClasses]">
-    <a href="/">
+  <div :class="customClasses">
+    <a href="/" class="logo flex gap-3 items-center whitespace-nowrap">
       <img class="logo__img max-w-10" src="/assets/images/Logo.png" alt="logo"/>
-    </a>
-
-    <a href="/">
       <span class="logo__text text-white text-xl">
         Vovko & Bybko Studio
       </span>
