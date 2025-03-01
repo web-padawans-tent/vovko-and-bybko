@@ -1,28 +1,20 @@
 <script setup>
-const {findOne, find} = useStrapi()
+const strapiStore = useStrapiStore()
 
-const endpoints = [
-  {key: "home", path: "home", options: {populate: "*"}},
-  {key: "priceCards", path: "products", options: {populate: "*", sort: 'id:asc'}},
-];
+await Promise.all([
+  strapiStore.fetchHomeData(),
+  strapiStore.fetchAllServiceData(),
+]);
 
-const results = await Promise.all(
-    endpoints.map(({path, options, method = "find"}) =>
-        method === "findOne" ? findOne(path) : find(path, options)
-    )
-);
-
-const data = Object.fromEntries(endpoints.map(({key}, index) => [key, results[index]?.data || null]));
-
-const {home, priceCards} = data;
+const {homeData, allServiceData} = strapiStore;
 </script>
 
 <template>
   <section class="section">
     <div class="container-main">
-      <Heading level="h2" customClasses="mb-8 text-center">{{ home?.servicesTitle }}</Heading>
+      <Heading level="h2" customClasses="mb-8 text-center">{{ homeData?.servicesTitle }}</Heading>
       <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-7">
-        <template v-for="(item, index) in priceCards" :key="index">
+        <template v-for="(item, index) in allServiceData" :key="index">
           <PriceCard
               :title="item.priceCard.title"
               :price="item.priceCard.price"

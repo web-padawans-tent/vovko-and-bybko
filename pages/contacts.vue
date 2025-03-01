@@ -1,6 +1,9 @@
 <script setup>
-  const {data} = await useFetch("http://localhost:1337/api/contact");
-  const contactData = data.value?.data;
+const strapiStore = useStrapiStore()
+
+await strapiStore.fetchContactData();
+
+const {contactData} = strapiStore;
 </script>
 
 <template>

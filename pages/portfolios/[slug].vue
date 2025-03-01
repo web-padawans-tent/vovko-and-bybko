@@ -1,14 +1,11 @@
 <script setup>
   const route = useRoute()
 
-  const { find, findOne } = useStrapi()
+  const strapiStore = useStrapiStore()
 
-  const {data: portfolioData} = await find("portfolios/", {
-    filters: { slug: `${route.params.slug}` },
-    populate: "*",
-  });
+  await strapiStore.fetchPortfolioBySlug(route.params.slug);
 
-  const portfolio = portfolioData?.[0] || null;
+  const {portfolioData} = strapiStore;
 </script>
 
 <template>
@@ -17,13 +14,13 @@
       <div class="portfolio__content">
         <Heading level="h1">О проекте</Heading>
         <div class="text">
-          <p v-for="(item, index) in portfolio?.text" :key="index">{{ item.children[0].text }}</p>
-          <p><b>Тип сайта:</b>{{ portfolio.siteType }}</p>
-          <p><b>Задача:</b>{{ portfolio.tasks }}</p>
+          <p v-for="(item, index) in portfolioData?.text" :key="index">{{ item.children[0].text }}</p>
+          <p><b>Тип сайта:</b>{{ portfolioData.siteType }}</p>
+          <p><b>Задача:</b>{{ portfolioData.tasks }}</p>
         </div>
       </div>
       <div class="portfolio__main">
-        <template v-for="(item, index) in portfolio?.images" :key="index">
+        <template v-for="(item, index) in portfolioData?.images" :key="index">
           <img
             class="portfolio__img"
             :class="{'portfolio__img--1': index === 0}"
