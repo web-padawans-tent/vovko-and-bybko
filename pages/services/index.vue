@@ -1,6 +1,10 @@
 <script setup>
 const {findOne, find} = useStrapi()
 
+const subdomain = window.location.hostname.split('.')[0];
+const locales = { en: 'en', de: 'de', ru: '' };
+const { data : example } = await find("/example", {populate: "*", locale: locales[subdomain]});
+
 const endpoints = [
   {key: "home", path: "home", options: {populate: "*"}},
   {key: "priceCards", path: "products", options: {populate: "*", sort: 'id:asc'}},

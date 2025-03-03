@@ -1,28 +1,23 @@
-const getLocaleFromSubdomain = (): string => {
-    if (typeof window !== 'undefined') {
-        const subdomain = window.location.hostname.split('.')[0];
-        const locales: { [key: string]: string } = { en: 'en', de: 'de', ru: 'ru-RU' };
-
-        if (subdomain && locales[subdomain]) {
-            return locales[subdomain];
-        }
-    }
-
-    return 'ru-RU';
-}
-
-export const useApi = async (endpoint: string, options: any = {}) => {
+export const useApi = () => {
+    const localeStore = useLocaleStore();
     const { find, findOne } = useStrapi();
-    const locale = getLocaleFromSubdomain();
 
-    const params = { locale, ...options };
+    const fetchData = async (endpoint: string, options: any = {}) => {
+        try {
+            while (!localeStore.isLocaleLoaded) {
+                await new Promise(resolve => setTimeout(resolve, 50));
+            }
+            const localeOption = localeStore.currentLocale ? { locale: localeStore.currentLocale } : {};
+            return endpoint.includes('/')
+                ? await findOne(endpoint, { ...localeOption, ...options })
+                : await find(endpoint, { ...localeOption, ...options });
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            throw error;
+        }
+    };
 
-    try {
-        return endpoint.includes('/')
-            ? await findOne(endpoint, params)
-            : await find(endpoint, params);
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        throw error;
-    }
-}
+    return {
+        fetchData,
+    };
+};

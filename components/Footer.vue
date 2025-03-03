@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import {useStrapiStore} from "~/stores/useStrapiStore";
 
 const strapiStore = useStrapiStore()
-await strapiStore.fetchMenuBottom()
 
 const texts = ref([
   {
@@ -20,7 +18,7 @@ const texts = ref([
         <div class="footer__col">
           <Logo customClasses="mb-2" />
         </div>
-        <div class="footer__col">
+        <div class="footer__col" v-if="strapiStore.menuBottoms.length">
           <Heading level="h6" customClasses="mb-2">УСЛУГИ</Heading>
           <ul class="footer__list">
             <li class="footer__list-item" v-for="(item, i) in strapiStore.menuBottoms[0].services" :key="i">
@@ -28,7 +26,7 @@ const texts = ref([
             </li>
           </ul>
         </div>
-        <div class="footer__col">
+        <div class="footer__col" v-if="strapiStore.menuBottoms.length">
           <Heading level="h6" customClasses="mb-2">О КОМПАНИИ</Heading>
           <ul class="footer__list">
             <li class="footer__list-item" v-for="(item, i) in strapiStore.menuBottoms[0].menuLinksAbout" :key="i">
@@ -36,7 +34,7 @@ const texts = ref([
             </li>
           </ul>
         </div>
-        <div class="footer__col">
+        <div class="footer__col" v-if="strapiStore.menuBottoms.length">
           <Heading level="h6" customClasses="mb-2">МЫ ВСЕГДА НА СВЯЗИ</Heading>
           <ul class="footer__list">
             <li :class="['footer__list-item', 'flex', 'gap-2', 'items-center', item.extraClass]" v-for="(item, i) in strapiStore.menuBottoms[0].menuLinksSocials" :key="i">

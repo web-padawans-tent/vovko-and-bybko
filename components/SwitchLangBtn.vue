@@ -56,7 +56,6 @@ onMounted(() => {
 
 const checkMobile = () => {
   isMobile.value = window.innerWidth <= 991.98;
-  console.log('work')
 };
 
 const getCurrentLang = () => {
@@ -65,7 +64,11 @@ const getCurrentLang = () => {
 };
 
 const changeLanguage = (lang) => {
-  window.location.href = `http://${lang}.localhost:3000${window.location.pathname}`;
+  if (lang !== "ru") {
+    window.location.href = `http://${lang}.localhost:3000${window.location.pathname}`;
+  } else {
+    window.location.href = `http://localhost:3000${window.location.pathname}`;
+  }
 };
 
 const filteredLanguages = computed(() => {

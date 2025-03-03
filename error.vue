@@ -1,10 +1,3 @@
-<script setup lang="ts">
-
-const strapiStore = useStrapiStore()
-await strapiStore.fetchMenuTop()
-
-</script>
-
 <template>
   <div class="hidden">
     <SvgSprite/>

@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useModalStore } from '~/stores/modalStore';
 
 const strapiStore = useStrapiStore()
-
-await strapiStore.fetchMenuTop()
-await strapiStore.fetchMenuBottom();
 
 const modalStore = useModalStore();
 
@@ -51,7 +47,7 @@ onUnmounted(() => {
   <header class="header bg-black">
     <div class="header__container container-main">
       <div class="header__main">
-        <Logo/>
+        <Logo :custom-classes="[ 'w-full', 'md:w-auto']"/>
 
         <!-- Меню навигации -->
         <nav class="header__nav ml-auto">
@@ -71,7 +67,6 @@ onUnmounted(() => {
           <Button @click="openModal('form-contact')" color="purple" class="z-btn_style_default z-btn_md z-btn_glow">ОСТАВИТЬ ЗАЯВКУ</Button>
         </nav>
         <button type="button" @click="toggleMenu" :class="{'header__menu-btn': true, 'header__menu-btn--active': isMenuOpen}">
-          <span></span>
         </button>
         <SwitchLangBtn v-if="isDesktop" />
       </div>
