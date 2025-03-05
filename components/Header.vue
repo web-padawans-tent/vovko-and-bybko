@@ -67,6 +67,7 @@ onUnmounted(() => {
           <Button @click="openModal('form-contact')" color="purple" class="z-btn_style_default z-btn_md z-btn_glow">ОСТАВИТЬ ЗАЯВКУ</Button>
         </nav>
         <button type="button" @click="toggleMenu" :class="{'header__menu-btn': true, 'header__menu-btn--active': isMenuOpen}">
+          <span></span>
         </button>
         <SwitchLangBtn v-if="isDesktop" />
       </div>

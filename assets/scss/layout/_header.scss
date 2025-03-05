@@ -50,12 +50,12 @@
 
     &::before {
       content: '';
-      top: 4px;
+      top: 0;
     }
 
     &::after {
       content: '';
-      bottom: 2px;
+      bottom: 0;
     }
 
     span {
@@ -65,8 +65,7 @@
 
     &--active {
       &::after {
-        top: 50%;
-        transform: rotate(-45deg);
+        display: none;
       }
 
       &::before {
@@ -74,6 +73,10 @@
         transform: rotate(45deg);
       }
 
+      span {
+        top: 50%;
+        transform: rotate(-45deg);
+      }
     }
 
     @media (min-width: em($tablet)) {

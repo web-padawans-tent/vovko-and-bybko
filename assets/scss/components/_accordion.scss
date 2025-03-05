@@ -12,6 +12,10 @@
   &--active {
     box-shadow: 0px 0px 28px 5px rgba(153, 69, 255, 0.5);
     border-color: transparent;
+
+    .accordion__trigger {
+      margin-bottom: 15px;
+    }
   }
 
   &__trigger {
@@ -22,13 +26,15 @@
     width: 100%;
     text-align: left;
     outline: none;
-    transition: color 0.3s ease-in-out;
+    margin-bottom: 0;
+    transition: color 0.3s ease-in-out, margin-bottom .3s ease;
 
     &-text {
       color: #fff;
       font-weight: 600;
       line-height: 1.2;
       @include adaptiveValue('font-size', 20, 16);
+      text-transform: uppercase;
     }
 
     &-icon {
@@ -63,7 +69,6 @@
   }
 
   &__content {
-    margin-top: 15px;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s ease;
