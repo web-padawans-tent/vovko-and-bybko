@@ -36,12 +36,12 @@ export default {
     </a>
     <div class="product-card__content">
       <div>
-        <a :href="`/portfolio/${slug}`">
+        <a :href="`/portfolios/${slug}`">
           <Heading level="h6">{{ title }}</Heading>
         </a>
         <p class="product-card__category">{{ category }}</p>
       </div>
-      <a :href="`/portfolio/${slug}`" class="product-card__link">
+      <a :href="`/portfolios/${slug}`" class="product-card__link">
         <svg class="product-card__link-icon">
           <use xlink:href="#arrow_down_right"></use>
         </svg>

@@ -1,20 +1,4 @@
 <script lang="ts" setup>
-const { findOne, find } = useStrapi();
-const localeStore = useLocaleStore();
-
-interface StrapiResponse<T> {
-  data: T;
-}
-
-interface Endpoint {
-  key: string;
-  path: string;
-  options?: any;
-  method?: 'find' | 'findOne';
-}
-
-const data = ref<Record<string, any>>({});
-
 const endpoints: Endpoint[] = [
   { key: 'home', path: 'home', options: { populate: '*' } },
   { key: 'benefits', path: 'home', options: { populate: 'benefits.list' } },
@@ -24,43 +8,14 @@ const endpoints: Endpoint[] = [
   { key: 'form', path: 'contact-form', method: 'findOne' },
 ];
 
-const fetchData = async () => {
-  const locale = localeStore.currentLocale;
+const { computedData } = useFetchData(endpoints);
 
-  const results = await Promise.all(
-      endpoints.map(async ({ path, options, method = 'find' }) => {
-        try {
-          const finalOptions = { ...options, locale };
-          return method === 'findOne' ? await findOne(path) : await find(path, finalOptions);
-        } catch (error) {
-          console.error(`Ошибка при запросе к ${path}:`, error);
-          return { data: null };
-        }
-      })
-  );
-
-  data.value = endpoints.reduce((acc, { key }, index) => {
-    acc[key] = results[index]?.data || null;
-    return acc;
-  }, {} as Record<string, any>);
-};
-
-const home = computed(() => data.value.home);
-const benefits = computed(() => data.value.benefits);
-const faq = computed(() => data.value.faq);
-const services = computed(() => data.value.services);
-const portfolio = computed(() => data.value.portfolio);
-const form = computed(() => data.value.form);
-
-watch(
-    () => localeStore.isLocaleLoaded,
-    (loaded) => {
-      if (loaded) {
-        fetchData();
-      }
-    },
-    { immediate: true }
-);
+const home = computedData.home;
+const benefits = computedData.benefits;
+const faq = computedData.faq;
+const services = computedData.services;
+const portfolio = computedData.portfolio;
+const form = computedData.form;
 
 const modalStore = useModalStore();
 const openModal = (modalName) => modalStore.openModal(modalName);
@@ -113,7 +68,9 @@ const openModal = (modalName) => modalStore.openModal(modalName);
 
   <section class="section">
     <div class="container-main">
-      <Heading level="h2" customClasses="mb-8 text-center">{{ home?.servicesTitle }}</Heading>
+      <Heading level="h2" customClasses="mb-8 text-center">
+        <template v-if="home?.servicesTitle">{{ home?.servicesTitle }}</template>
+      </Heading>
       <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-7">
         <template v-if="services">
           <PriceCard

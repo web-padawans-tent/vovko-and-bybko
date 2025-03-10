@@ -2,8 +2,15 @@
 import { ref } from 'vue';
 
 const strapiStore = useStrapiStore()
-
 const modalStore = useModalStore();
+
+const endpoints: Endpoint[] = [
+  { key: 'services', path: 'services', options: { populate: '*' } },
+];
+
+const { computedData } = useFetchData(endpoints);
+
+const services = computedData.services;
 
 const isMenuOpen = ref(false);
 const isDesktop = ref(false);
@@ -53,7 +60,7 @@ onUnmounted(() => {
         <nav class="header__nav ml-auto">
           <ul class="header__nav-list">
             <li class="relative" v-for="(item, index) in strapiStore.menuTops" :key="index"
-                @mouseover="index === 0 && openModal('subMenu'); clearTimeOut"
+                @mouseover="item.link.includes('/services') && openModal('subMenu'); clearTimeOut"
                 @mouseleave="closeModal">
               <a :href="item.link" class="text-xl flex items-center gap-2 text-white">
                 {{ item.title }}
@@ -61,7 +68,7 @@ onUnmounted(() => {
                   <use :xlink:href="`#${item.svg}`"></use>
                 </svg>
               </a>
-              <sub-menu v-if="index === 0"/>
+              <sub-menu :items="services" v-if="item.link.includes('/services')"/>
             </li>
           </ul>
           <Button @click="openModal('form-contact')" color="purple" class="z-btn_style_default z-btn_md z-btn_glow">ОСТАВИТЬ ЗАЯВКУ</Button>

@@ -1,9 +1,13 @@
-<script setup>
-  const {data: homeData} = await useFetch("http://localhost:1337/api/home?populate=*");
-  const home = homeData.value?.data;
+<script setup lang="ts">
+  const endpoints: Endpoint[] = [
+    { key: 'home', path: 'home', options: { populate: '*' } },
+    { key: 'portfolio', path: 'portfolios', options: { populate: '*' } },
+  ];
 
-  const {data: portfolioData} = await useFetch(`http://localhost:1337/api/portfolios?populate=*`);
-  const portfolio = portfolioData.value?.data;
+  const { computedData } = useFetchData(endpoints);
+
+  const home = computedData.home;
+  const portfolio = computedData.portfolio;
 </script>
 
 <template>

@@ -1,28 +1,10 @@
 <script setup lang="ts">
+import { defineProps } from "vue";
 import {useModalStore} from "~/stores/modalStore";
 
-const menuTopLvl2 = [
-  {
-    "link": "#",
-    "text": "Разработка веб-сайтов",
-    "svg": "chevron_right"
-  },
-  {
-    "link": "#",
-    "text": "Разработка веб-сайтов",
-    "svg": "chevron_right"
-  },
-  {
-    "link": "#",
-    "text": "Разработка веб-сайтов",
-    "svg": "chevron_right"
-  },
-  {
-    "link": "#",
-    "text": "Разработка веб-сайтов",
-    "svg": "chevron_right"
-  },
-]
+const props = defineProps<{
+  items: { link: string; text: string; svg?: string }[];
+}>();
 
 const modalStore = useModalStore();
 function closeModal() {
@@ -35,14 +17,14 @@ function clearTimeOut() {
 </script>
 
 <template>
-  <div @mouseleave="closeModal" @mouseover="clearTimeOut"  v-if="modalStore.activeModal === 'subMenu'" class="menu-list__container rounded-xl ">
+  <div @mouseleave="closeModal" @mouseover="clearTimeOut" v-if="modalStore.activeModal === 'subMenu'" class="menu-list__container rounded-xl ">
     <ul class="menu-list">
-      <li class="menu-list__item" v-for="(item, index) in menuTopLvl2" :key="index">
-        <a class="menu-list__link flex items-center gap-2 justify-between" :href="item.link">
-          {{ item.text }}
-          <svg v-if="item.svg" class="w-5 h-5 svg-ico svg-ico_no-fill">
+      <li class="menu-list__item" v-for="(item, index) in props.items" :key="index">
+        <a class="menu-list__link flex items-center gap-2 justify-between" :href="`/services/${item.slug}`">
+          {{ item.priceCard.title }}
+          <!-- <svg v-if="item.svg" class="w-5 h-5 svg-ico svg-ico_no-fill">
             <use :xlink:href="`#${item.svg}`"></use>
-          </svg>
+          </svg> -->
         </a>
       </li>
     </ul>

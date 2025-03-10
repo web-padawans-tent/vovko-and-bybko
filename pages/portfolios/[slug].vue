@@ -1,14 +1,13 @@
-<script setup>
+<script setup lang="ts">
   const route = useRoute()
 
-  const { find, findOne } = useStrapi()
+  const endpoints: Endpoint[] = [
+    { key: 'portfolio', path: 'portfolios', options: { populate: '*', filters: { slug: `${route.params.slug}` } }, method: 'findOne' },
+  ];
 
-  const {data: portfolioData} = await find("portfolios/", {
-    filters: { slug: `${route.params.slug}` },
-    populate: "*",
-  });
+  const { computedData } = useFetchData(endpoints);
 
-  const portfolio = portfolioData?.[0] || null;
+  const portfolio = computedData.portfolio;
 </script>
 
 <template>
@@ -17,13 +16,15 @@
       <div class="portfolio__content">
         <Heading level="h1">О проекте</Heading>
         <div class="text">
-          <p v-for="(item, index) in portfolio?.text" :key="index">{{ item.children[0].text }}</p>
-          <p><b>Тип сайта:</b>{{ portfolio.siteType }}</p>
-          <p><b>Задача:</b>{{ portfolio.tasks }}</p>
+          <template v-if="portfolio">
+            <p v-for="(item, index) in portfolio?.text" :key="index">{{ item.children[0].text }}</p>
+            <p><b>Тип сайта:</b>{{ portfolio.siteType }}</p>
+            <p><b>Задача:</b>{{ portfolio.tasks }}</p>
+          </template>
         </div>
       </div>
       <div class="portfolio__main">
-        <template v-for="(item, index) in portfolio?.images" :key="index">
+        <template v-if="portfolio" v-for="(item, index) in portfolio?.images" :key="index">
           <img
             class="portfolio__img"
             :class="{'portfolio__img--1': index === 0}"
