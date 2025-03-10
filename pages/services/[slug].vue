@@ -38,7 +38,7 @@
         <Button color="purple" @click="openModal('form-application')" class="z-btn_style_default z-btn_md">ОСТАВИТЬ ЗАЯВКУ</Button>
       </div>
       <div class="promo__img">
-        <img :src="'http://localhost:1337' + product.promoImage.url" alt="">
+<!--        <img :src="'http://localhost:1337' + product.promoImage.url" alt="">-->
       </div>
     </div>
   </section>
