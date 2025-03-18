@@ -4,6 +4,16 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/scss/main.scss'],
 
+  vite: {
+    css: {
+      preprocessorOptions: {
+        sass: {
+          api: 'modern-compiler',
+        },
+      },
+    }
+  },
+
   pages: true,
 
   postcss: {
@@ -19,6 +29,13 @@ export default defineNuxtConfig({
     '@nuxtjs/strapi',
     '@nuxtjs/i18n',
   ],
+
+  fonts: {
+    families: [
+      { name: "Cormorant" },
+      { name: "Orbitron" }
+    ]
+  },
 
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337',

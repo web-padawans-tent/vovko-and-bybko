@@ -1,5 +1,6 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="arrow_top_right" viewBox="0 0 36 36"><path d="M2 34 34 2m0 0H10m24 0v24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="arrow_down_right" viewBox="0 0 16 16">
       <path d="M5.33 16v-2.14h7.04L0 1.49 1.49 0l12.37 12.37V5.33H16V16H5.33Z"/>
     </symbol>

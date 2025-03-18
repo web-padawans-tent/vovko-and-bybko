@@ -1,5 +1,5 @@
-<script lang="ts" setup>
-const endpoints: Endpoint[] = [
+<script setup>
+const endpoints = [
   { key: 'home', path: 'home', options: { populate: '*' } },
   { key: 'benefits', path: 'home', options: { populate: 'benefits.list' } },
   { key: 'faq', path: 'home', options: { populate: 'faq.list' } },
@@ -61,10 +61,11 @@ const openModal = (modalName) => modalStore.openModal(modalName);
             </template>
           </div>
         </div>
-        <ConsultationForm/>
+       <ConsultationForm/>
       </div>
     </div>
-  </section>
+  </section> 
+
 
   <section class="section">
     <div class="container-main">
@@ -165,5 +166,5 @@ const openModal = (modalName) => modalStore.openModal(modalName);
               text="Заполните форму и с вами сконтактирует наш специалист"/>
       </div>
     </div>
-  </section>
+  </section> 
 </template>

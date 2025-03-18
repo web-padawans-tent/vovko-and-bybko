@@ -11,12 +11,16 @@
     <main>
       <nuxt-page/>
     </main>
-    <Footer/>
+    <Footer v-if="!isFooterHidden"/>
     <Modal />
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
+  const route = useRoute();
+
+  const isFooterHidden = computed(() => route.path === "/portfolios/")
+
   useHead({
     title: "V&B Studio",
   })
