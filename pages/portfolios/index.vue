@@ -39,12 +39,12 @@ const sections = [
     ],
     linkBg: "zarinit-link-bg.jpg",
     fontFamily: "Orbitron",
-    hightLogo: "10rem",
     stack: [
       "VUE",  
       "GO",
       "FEDORA"
-    ]
+    ],
+    hightLogo: "10rem"
   },
 ];
 
@@ -113,18 +113,18 @@ onMounted(() => {
     >
       <div class="container mx-auto relative">
         <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <img :class="`h-[${section.hightLogo}]`" :src="`/_nuxt/assets/images/${section.logo}`" :alt="section.title">
+            <img :class="section.hightLogo ? `h-[${section.hightLogo}]` : 'h-12'" :src="`/_nuxt/assets/images/${section.logo}`" :alt="section.title">
         </div>
         <div class="py-[10rem] grid grid-cols-2 grid-rows-2 h-screen gap-5 p-5">
           <div class="flex justify-start items-start flex-col">
             <div v-if="section.isTitleImg" class="pb-8">
-              <img :src="`/_nuxt/assets/images/${section.title}`" :alt="section.alt">
+              <img class="h-12" :src="`/_nuxt/assets/images/${section.title}`" :alt="section.alt">
             </div>
             <h1 v-else class="text-8xl pb-8 text-nowrap">{{ section.title }}</h1>
             <p class="text-4xl">{{ section.content }}</p>
           </div>
           <div class="flex justify-end items-start">
-            <div class="w-[22rem] relative">
+            <div class="w-[18rem] relative">
               <img :src="`/_nuxt/assets/images/${section.linkBg}`" class="top-0 left-0 w-full h-full" :alt="section.title">
               <div class="absolute top-0 right-0 color-white p-3 bg-black">
                 <svg class="w-9 h-9 stroke-current">
@@ -141,14 +141,12 @@ onMounted(() => {
             </div>
           </div>
           <div class="flex flex-col justify-end items-end">
-
               <div class="text-4xl pb-4">Stack:</div>
               <div class="flex gap-4">
                 <template v-for="(item, index) in section.stack">
                     <img class="h-16" :src="`/_nuxt/assets/images/${item}.png`" :alt="section.title">
                 </template>
               </div>
-
           </div>
         </div>
       </div>
