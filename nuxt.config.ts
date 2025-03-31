@@ -4,16 +4,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/scss/main.scss'],
 
-  vite: {
-    css: {
-      preprocessorOptions: {
-        sass: {
-          api: 'modern-compiler',
-        },
-      },
-    }
-  },
-
   pages: true,
 
   postcss: {
