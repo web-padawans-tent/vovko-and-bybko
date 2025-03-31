@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+const route = useRoute();
+
+console.log(route.path)
+
+const isHeaderOpacity = computed(() => route.path === "/portfolios/")
 
 const strapiStore = useStrapiStore()
 const modalStore = useModalStore();
@@ -51,12 +56,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header class="header bg-black">
-    <div class="header__container container-main">
+  <header class="header" :class="{'bg-black' : !isHeaderOpacity}">
+    <div class="container mx-auto">
       <div class="header__main">
         <Logo :custom-classes="[ 'w-full', 'md:w-auto']"/>
 
-        <!-- Меню навигации -->
         <nav class="header__nav ml-auto">
           <ul class="header__nav-list">
             <li class="relative" v-for="(item, index) in strapiStore.menuTops" :key="index"

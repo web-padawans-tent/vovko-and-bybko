@@ -26,14 +26,6 @@ p {
   margin: 0 auto;
 }
 
-.section {
-  @include adaptiveValue('margin-bottom', 140, 100);
-
-  &:first-child {
-    @include adaptiveValue('margin-top', 140, 100);
-  }
-}
-
 .price {
   font-weight: 600;
 }

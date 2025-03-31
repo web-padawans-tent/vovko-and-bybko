@@ -20,6 +20,13 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
 
+  fonts: {
+    families: [
+      { name: "Cormorant" },
+      { name: "Orbitron" }
+    ]
+  },
+
   strapi: {
     url: process.env.STRAPI_URL || 'http://localhost:1337',
     prefix: '/api',
